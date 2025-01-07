@@ -17,12 +17,14 @@ while getopts "cde" options; do
   d)
     echo 'Decrypting secrets'
     gpg --decrypt-files secrets/*
-    find secrets/ -name -f "*.gpg" -type f -print | xargs rm
+    find secrets/ -name "*.gpg" -type f -print | xargs rm
+    exit 0
     ;;
   e)
     echo 'Encrypting secrets'
     gpg -c secrets/*
-    find secrets/ ! -name -f "*.gpg" -type f -print | xargs rm
+    find secrets/ ! -name "*.gpg" -type f -print | xargs rm
+    exit 0
     ;;
   *)
     echo 'error in command line parsing' >&2
