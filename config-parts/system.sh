@@ -19,10 +19,13 @@ set system login banner post-login 'Welcome to VyOS!\n\n  ┌── ┐\n  . VyO
 
 # Default password for VyOS user
 set system login user vyos authentication encrypted-password '$6$rounds=656000$/ihVNMXJyZ51jk.D$KR6ersssBUiHTY.ZT5N8DdbSnOKw0u1D/6EjV1nIY6m1G0MhpkdPwTE2ypEgdvwskBXo3PcofK0cQkUKdkAUF/'
-set system login user vyos authentication public-keys SK_LAN_LOCAL key 'AAAAC3NzaC1lZDI1NTE5AAAAIFWqGuDHjHW4DBzhvM1Zcww8fvDLZF3Wm+tyHIIXreJJ'
-set system login user vyos authentication public-keys SK_LAN_LOCAL type 'ssh-ed25519'
-set system login user vyos authentication public-keys YUBIKEY key 'AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPOc+bvxJXokMvERTNCNj51vmmIdaL5zXjlw2m1NxPS3AAAAGHNzaDptYXJrLmhhaGxAc2lnYWludC5hdQ=='
-set system login user vyos authentication public-keys YUBIKEY type 'sk-ssh-ed25519@openssh.com'
+
+# User for myself
+set system login user mhahl authentication public-keys SK_LAN_LOCAL key 'AAAAC3NzaC1lZDI1NTE5AAAAIFWqGuDHjHW4DBzhvM1Zcww8fvDLZF3Wm+tyHIIXreJJ'
+set system login user mhahl authentication public-keys SK_LAN_LOCAL type 'ssh-ed25519'
+set system login user mhahl authentication public-keys YUBIKEY key 'AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPOc+bvxJXokMvERTNCNj51vmmIdaL5zXjlw2m1NxPS3AAAAGHNzaDptYXJrLmhhaGxAc2lnYWludC5hdQ=='
+set system login user mhahl authentication public-keys YUBIKEY type 'sk-ssh-ed25519@openssh.com'
+set system login user mhahl full-name "Mark Hahl"
 
 # Conntrack modules
 set system conntrack modules ftp

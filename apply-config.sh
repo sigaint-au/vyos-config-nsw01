@@ -59,7 +59,7 @@ fi
 
 # Commit and save
 echo "Committing and saving config"
-#commit
-#save
+commit
+save
 
 exit
