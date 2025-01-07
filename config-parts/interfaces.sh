@@ -6,6 +6,27 @@ set interfaces ethernet eth1 hw-id '00:0d:b9:5e:41:35'
 set interfaces ethernet eth2 hw-id '00:0d:b9:5e:41:36'
 set interfaces ethernet eth3 hw-id '00:0d:b9:5e:41:37'
 
+# Offload
+set interfaces ethernet eth0 offload gro
+set interfaces ethernet eth0 offload gso
+set interfaces ethernet eth0 offload sg
+set interfaces ethernet eth0 offload tso
+
+set interfaces ethernet eth1 offload gro
+set interfaces ethernet eth1 offload gso
+set interfaces ethernet eth1 offload sg
+set interfaces ethernet eth1 offload tso
+
+set interfaces ethernet eth2 offload gro
+set interfaces ethernet eth2 offload gso
+set interfaces ethernet eth2 offload sg
+set interfaces ethernet eth2 offload tso
+
+set interfaces ethernet eth3 offload gro
+set interfaces ethernet eth3 offload gso
+set interfaces ethernet eth3 offload sg
+set interfaces ethernet eth3 offload tso
+
 # Interfaces for WAN
 set interfaces ethernet eth0 address 'dhcp'
 set interfaces ethernet eth0 address 'dhcpv6'
