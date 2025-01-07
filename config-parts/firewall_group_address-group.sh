@@ -5,8 +5,8 @@
 #
 set firewall group address-group DNS_SERVERS address '45.90.28.189'
 set firewall group address-group DNS_SERVERS address '45.90.30.189'
-set firewall group address-group DNS_SERVERS address '2a07:a8c0::2a:b561'
-set firewall group address-group DNS_SERVERS address '2a07:a8c1::2a:b561'
+#set firewall group address-group DNS_SERVERS address '2a07:a8c0::2a:b561'
+#set firewall group address-group DNS_SERVERS address '2a07:a8c1::2a:b561'
 
 ##
 # Management address which should be accessible from the PROTECTED

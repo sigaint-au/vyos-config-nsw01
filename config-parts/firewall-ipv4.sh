@@ -1,14 +1,5 @@
 #!/bin/vbash
 
-# WAN -> WIFI
-set firewall ipv4 name WAN-WIFI default-action 'reject'
-set firewall ipv4 name WAN-WIFI default-log
-set firewall ipv4 name WAN-WIFI rule 100 action 'accept'
-set firewall ipv4 name WAN-WIFI rule 100 state 'established'
-set firewall ipv4 name WAN-WIFI rule 100 state 'related'
-set firewall ipv4 name WAN-WIFI rule 110 action 'reject'
-set firewall ipv4 name WAN-WIFI rule 110 state 'invalid'
-
 # WAN -> LOCAL
 set firewall ipv4 name WAN-LOCAL default-action 'reject'
 set firewall ipv4 name WAN-LOCAL default-log
