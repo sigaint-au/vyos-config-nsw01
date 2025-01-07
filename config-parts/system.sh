@@ -3,7 +3,7 @@
 # Hostname
 set system host-name 'lan-rou-01.nsw01.sigaint.au'
 
-set system time-zone 'Aystralia/Sydney'
+set system time-zone 'Australia/Sydney'
 
 # System DNS set to NextDNS
 set system name-server '45.90.28.189'
