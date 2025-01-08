@@ -12,4 +12,4 @@ set firewall group network-group NSW01_LOCAL_NETS network '10.120.20.0/24'
 set firewall group network-group NSW01_LOCAL_NETS network '10.120.21.0/24'
 
 # IPv6 Local nets
-set firewall group ipv6-address-group NSW01_LOCAL_NETS_6 network '2404:e80:4b6f::/48'
+set firewall group ipv6-network-group NSW01_LOCAL_NETS_6 network '2404:e80:4b6f::/48'
