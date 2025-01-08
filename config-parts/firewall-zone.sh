@@ -2,7 +2,7 @@
 
 set firewall zone ADMIN default-action 'reject'
 set firewall zone ADMIN default-log
-set firewall zone ADMIN description 'Admin Zone'
+set firewall zone ADMIN description 'Device administration network'
 set firewall zone ADMIN from PROTECTED firewall name 'ADMIN-PROTECTED'
 set firewall zone ADMIN interface 'br0.10'
 
@@ -22,7 +22,7 @@ set firewall zone LOCAL local-zone
 
 set firewall zone PROTECTED default-action 'reject'
 set firewall zone PROTECTED default-log
-set firewall zone PROTECTED description 'Administration environment'
+set firewall zone PROTECTED description 'Administration with internet access'
 set firewall zone PROTECTED from ADMIN firewall name 'PROTECTED-ADMIN'
 set firewall zone PROTECTED interface 'br0.11'
 

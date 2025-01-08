@@ -1,5 +1,8 @@
 #!/bin/vbash
 
+# Allow ping to all LOCAL interfaces
+set firewall global-options all-ping enable
+
 # WAN -> LOCAL
 set firewall ipv4 name WAN-LOCAL default-action 'reject'
 set firewall ipv4 name WAN-LOCAL default-log

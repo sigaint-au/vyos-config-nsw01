@@ -1,7 +1,7 @@
 #!/bin/vbash
 
 # Hostname
-set system host-name 'lan-rou-01.nsw01.sigaint.au'
+set system host-name 'au-lan-rou-01.nsw01.sigaint.au'
 
 set system time-zone 'Australia/Sydney'
 
