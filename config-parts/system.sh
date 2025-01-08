@@ -18,6 +18,13 @@ set system name-server '2a07:a8c1::2a:b561'
 # Set welcome banner
 set system login banner post-login 'Welcome to VyOS!\n\n  ┌── ┐\n  . VyOS 1.5 \n  └ ──┘'
 
+# Vyos keys
+set system login user vyos authentication public-keys SK_LAN_LOCAL key 'AAAAC3NzaC1lZDI1NTE5AAAAIFWqGuDHjHW4DBzhvM1Zcww8fvDLZF3Wm+tyHIIXreJJ'
+set system login user vyos authentication public-keys SK_LAN_LOCAL type 'ssh-ed25519'
+set system login user vyos authentication public-keys YUBIKEY key 'AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPOc+bvxJXokMvERTNCNj51vmmIdaL5zXjlw2m1NxPS3AAAAGHNzaDptYXJrLmhhaGxAc2lnYWludC5hdQ=='
+set system login user vyos authentication public-keys YUBIKEY type 'sk-ssh-ed25519@openssh.com'
+
+
 # User for myself
 set system login user mhahl authentication public-keys SK_LAN_LOCAL key 'AAAAC3NzaC1lZDI1NTE5AAAAIFWqGuDHjHW4DBzhvM1Zcww8fvDLZF3Wm+tyHIIXreJJ'
 set system login user mhahl authentication public-keys SK_LAN_LOCAL type 'ssh-ed25519'
