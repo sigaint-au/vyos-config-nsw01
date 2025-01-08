@@ -18,9 +18,6 @@ set system name-server '2a07:a8c1::2a:b561'
 # Set welcome banner
 set system login banner post-login 'Welcome to VyOS!\n\n  ┌── ┐\n  . VyOS 1.5 \n  └ ──┘'
 
-# Default password for VyOS user
-set system login user vyos authentication encrypted-password '$6$rounds=656000$mIxqbSUwOUbWqRVj$sSPS6TPg.2COmb3ucm5E96HQlrlkH/HH8RH3XKU49WlCk3s6ND2dYLlZmR1.IFDQJ6NzTA3B3i.5mse7SFF3D1'
-
 # User for myself
 set system login user mhahl authentication public-keys SK_LAN_LOCAL key 'AAAAC3NzaC1lZDI1NTE5AAAAIFWqGuDHjHW4DBzhvM1Zcww8fvDLZF3Wm+tyHIIXreJJ'
 set system login user mhahl authentication public-keys SK_LAN_LOCAL type 'ssh-ed25519'
