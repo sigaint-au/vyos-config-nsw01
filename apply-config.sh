@@ -47,9 +47,11 @@ for f in /config/secrets/*.env; do
   fi
 done
 
+echo ""
 echo "Loaded secrets:"
+echo "--------------"
 env |  grep -E '^(secret_)'
-
+echo ""
 # Load all config files
 for f in /config/config-parts/*.sh; do
   if [[ -f "${f}" ]]; then
@@ -58,6 +60,7 @@ for f in /config/config-parts/*.sh; do
   fi
 done
 
+echo ""
 echo "Changes to running config:"
 compare
 
