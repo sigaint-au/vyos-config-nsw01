@@ -31,10 +31,28 @@ set interfaces ethernet eth3 offload tso
 set interfaces ethernet eth0 address 'dhcp'
 set interfaces ethernet eth0 address 'dhcpv6'
 set interfaces ethernet eth0 description 'NET_NSW01_WAN'
+
 set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.13 address '1'
 set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.13 sla-id '0'
+
 set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.20 address '1'
 set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.20 sla-id '1'
+
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.10 address '1'
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.10 sla-id '2'
+
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.11 address '1'
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.11 sla-id '3'
+
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.12 address '1'
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.12 sla-id '4'
+
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.14 address '1'
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.14 sla-id '5'
+
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.21 address '1'
+set interfaces ethernet eth0 dhcpv6-options pd 0 interface br0.21 sla-id '6'
+
 set interfaces ethernet eth0 dhcpv6-options pd 0 length '48'
 set interfaces ethernet eth0 dhcpv6-options rapid-commit
 set interfaces ethernet eth0 ipv6 address autoconf
