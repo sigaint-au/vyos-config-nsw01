@@ -49,9 +49,12 @@ done
 
 echo ""
 echo "Loaded secrets:"
-echo "--------------"
+echo "--------------------------"
 env |  grep -E '^(secret_)'
+
 echo ""
+echo " Processing config-parts"
+echo "--------------------------"
 # Load all config files
 for f in /config/config-parts/*.sh; do
   if [[ -f "${f}" ]]; then
