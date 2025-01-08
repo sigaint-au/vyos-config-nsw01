@@ -67,4 +67,4 @@ set interfaces wireguard wg600 peer ProtonVPN_CH600 allowed-ips '0.0.0.0/0'
 set interfaces wireguard wg600 peer ProtonVPN_CH600 persistent-keepalive '15'
 set interfaces wireguard wg600 peer ProtonVPN_CH600 port '51820'
 set interfaces wireguard wg600 peer ProtonVPN_CH600 public-key 'Ii6hAbnu84wZ8NzVt5+ylO4FnX+ANrKNzpFOSYq9dks='
-set interfaces wireguard wg600 private-key "$wireguard_wg600_private_key"
+set interfaces wireguard wg600 private-key "$secret_wireguard_wg600_private_key"

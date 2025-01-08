@@ -16,7 +16,7 @@ while getopts "cde" options; do
     ;;
   d)
     echo 'Decrypting secrets'
-    gpg --decrypt-files secrets/*
+    gpg --decrypt-files secrets/*.gpg
     find secrets/ -name "*.gpg" -type f -print | xargs rm
     exit 0
     ;;
@@ -40,7 +40,15 @@ source /opt/vyatta/etc/functions/script-template
 load /opt/vyatta/etc/config.boot.default
 
 # Load secrets
-source /config/secrets/*.env
+for f in /config/secrets/*.env; do
+  if [[ -f "${f}" ]]; then
+    echo "Loading secrets ${f}"
+    source "${f}"
+  fi
+done
+
+echo "Loaded secrets:"
+env |  grep -E '^(secret_)'
 
 # Load all config files
 for f in /config/config-parts/*.sh; do
@@ -54,12 +62,12 @@ echo "Changes to running config:"
 compare
 
 if "${dry_run}"; then
-  exit 0
+  echo "Not saving changes, use -c to commit"
+else
+  # Commit and save
+  echo "Committing and saving config"
+  commit
+  save
 fi
 
-# Commit and save
-echo "Committing and saving config"
-commit
-save
 
-exit
