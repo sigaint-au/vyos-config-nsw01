@@ -13,7 +13,7 @@ set service dhcp-server shared-network-name NET_NSW01_MGMT option name-server '1
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 option default-router '10.120.10.1'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 range 0 start '10.120.10.100'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 range 0 stop '10.120.10.200'
-set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 subnet-id '1'
+set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 subnet-id '10'
 
 # Unifi Devices
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping unifi-console ip-address '10.120.10.10'
@@ -59,7 +59,7 @@ set service dhcp-server shared-network-name NET_NSW01_DMZ option name-server '10
 set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 option default-router '10.120.20.1'
 set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 range 0 start '10.120.20.10'
 set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 range 0 stop '10.120.20.100'
-set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 subnet-id '3'
+set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 subnet-id '20'
 
 #----------------------------------------------------------
 # Name:     NET_NSW01_PROTECTED
@@ -73,7 +73,7 @@ set service dhcp-server shared-network-name NET_NSW01_PROTECTED option name-serv
 set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 option default-router '10.120.11.1'
 set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 range 0 start '10.120.11.10'
 set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 range 0 stop '10.120.11.100'
-set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 subnet-id '3'
+set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 subnet-id '11'
 
 #----------------------------------------------------------
 # Name:     NET_NSW01_HOSTING
@@ -87,7 +87,7 @@ set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 option default-router '10.120.14.1'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 range 0 start '10.120.14.100'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 range 0 stop '10.120.14.200'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 subnet-id '4'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 subnet-id '14'
 
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-01 ip-address '10.120.14.11'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-01 mac '44:a8:42:0a:5e:e7'
@@ -114,7 +114,7 @@ set service dhcp-server shared-network-name NET_NSW01_SECURITY option name-serve
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 option default-router '10.120.12.1'
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 range 0 start '10.120.12.10'
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 range 0 stop '10.120.12.100'
-set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 subnet-id '2'
+set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 subnet-id '12'
 
 # Security Cameras for NSW01
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 static-mapping cam-62-e1 ip-address '10.120.12.101'
@@ -131,3 +131,18 @@ set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 static-mapping cam-65-23 mac '9c:8e:cd:2d:65:23'
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 static-mapping cam-65-4b ip-address '10.120.12.107'
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 static-mapping cam-65-4b mac '9c:8e:cd:2d:65:4b'
+
+#----------------------------------------------------------
+# Name:     NET_NSW01_WIFI
+# Network:  10.120.13.1
+# VLAN:     10
+# Domain:   wifi.nsw01.sigaint.au
+#
+#----------------------------------------------------------
+
+set service dhcp-server shared-network-name NET_NSW01_WIFI option domain-name 'wifi.nsw01.sigaint.au'
+set service dhcp-server shared-network-name NET_NSW01_WIFI option name-server '10.120.13.1'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 option default-router '10.120.13.1'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 range 0 start '10.120.13.100'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 range 0 stop '10.120.13.200'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 subnet-id '13'
