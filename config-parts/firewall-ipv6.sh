@@ -39,6 +39,22 @@ set firewall ipv6 name WIFI-LOCAL-6 rule 110 destination port '546'
 set firewall ipv6 name WIFI-LOCAL-6 rule 110 protocol 'udp'
 set firewall ipv6 name WIFI-LOCAL-6 rule 110 source port '547'
 
+# WIFI -> WAN
+set firewall ipv6 name WIFI-WAN-6 default-action 'reject'
+set firewall ipv6 name WIFI-WAN-6 default-log
+set firewall ipv6 name WIFI-WAN-6 description 'WIFI to WAN IPv6'
+set firewall ipv6 name WIFI-WAN-6 rule 100 action 'accept'
+
+# WAN -> WIFI
+set firewall ipv6 name WAN-WIFI-6 default-action 'reject'
+set firewall ipv6 name WAN-WIFI-6 default-log
+set firewall ipv6 name WAN-WIFI-6 description 'WAN to WIFI IPv6'
+set firewall ipv6 name WAN-WIFI-6 rule 110 action 'accept'
+set firewall ipv6 name WAN-WIFI-6 rule 110 state 'established'
+set firewall ipv6 name WAN-WIFI-6 rule 110 state 'related'
+set firewall ipv6 name WAN-WIFI-6 rule 120 action 'drop'
+set firewall ipv6 name WAN-WIFI-6 rule 120 state 'invalid'
+
 # LOCAL -> WIFI
 set firewall ipv6 name LOCAL-WIFI-6 default-action 'drop'
 set firewall ipv6 name LOCAL-WIFI-6 default-log

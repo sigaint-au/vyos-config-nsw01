@@ -63,7 +63,7 @@ set interfaces bridge br0 member interface eth3 allowed-vlan '10-50'
 set interfaces bridge br0 member interface eth4 allowed-vlan '10-50'
 set interfaces bridge br0 stp
 set interfaces bridge br0 vif 10 address '10.120.10.1/24'
-set interfaces bridge br0 vif 10 description 'NET_NSW01_ADMIN'
+set interfaces bridge br0 vif 10 description 'NET_NSW01_MGMT'
 set interfaces bridge br0 vif 11 address '10.120.11.1/27'
 set interfaces bridge br0 vif 11 description 'NET_NSW01_PROTECTED'
 set interfaces bridge br0 vif 12 address '10.120.12.1/24'
