@@ -75,3 +75,25 @@ set firewall ipv4 name WIFI-WAN default-action 'reject'
 set firewall ipv4 name WIFI-WAN default-log
 set firewall ipv4 name WIFI-WAN rule 100 action 'accept'
 set firewall ipv4 name WIFI-WAN rule 100 description 'Accept All Traffic'
+
+# WIFI -> LOCAL
+set firewall ipv4 name WIFI-LOCAL default-action 'reject'
+set firewall ipv4 name WIFI-LOCAL default-log
+set firewall ipv4 name WIFI-LOCAL rule 100 action 'accept'
+set firewall ipv4 name WIFI-LOCAL rule 100 state 'established'
+set firewall ipv4 name WIFI-LOCAL rule 100 state 'related'
+set firewall ipv4 name WIFI-LOCAL rule 110 action 'reject'
+set firewall ipv4 name WIFI-LOCAL rule 110 state 'invalid'
+set firewall ipv4 name WIFI-LOCAL rule 120 description 'Accept traffic to local services'
+set firewall ipv4 name WIFI-LOCAL rule 120 destination group port-group 'LOCAL_SERVICES'
+set firewall ipv4 name WIFI-LOCAL rule 120 protocol 'tcp_udp'
+
+
+# LOCAL -> WIFI
+set firewall ipv4 name LOCAL-WIFI default-action 'reject'
+set firewall ipv4 name LOCAL-WIFI default-log
+set firewall ipv4 name LOCAL-WIFI rule 100 action 'accept'
+set firewall ipv4 name LOCAL-WIFI rule 100 state 'established'
+set firewall ipv4 name LOCAL-WIFI rule 100 state 'related'
+set firewall ipv4 name LOCAL-WIFI rule 110 action 'reject'
+set firewall ipv4 name LOCAL-WIFI rule 110 state 'invalid'

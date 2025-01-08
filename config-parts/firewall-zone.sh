@@ -16,6 +16,7 @@ set firewall zone LOCAL default-log
 set firewall zone LOCAL description 'Local zone'
 set firewall zone LOCAL from WAN firewall ipv6-name 'WAN-LOCAL-6'
 set firewall zone LOCAL from WAN firewall name 'WAN-LOCAL'
+set firewall zone LOCAL from WIFI firewall name 'WIFI-LOCAL'
 set firewall zone LOCAL local-zone
 
 set firewall zone PROTECTED default-action 'reject'
@@ -52,5 +53,6 @@ set firewall zone WIFI default-action 'reject'
 set firewall zone WIFI default-log
 set firewall zone WIFI description 'WIFI zone'
 set firewall zone WIFI from WAN firewall name 'WAN-WIFI'
+set firewall zone WIFI from LOCAL firewall name 'LOCAL-WIFI'
 set firewall zone WIFI interface 'br0.13'
-set firewall zone WIFI interface 'eth3'
+set firewall zone WIFI interface 'wg600'
