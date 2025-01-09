@@ -140,8 +140,12 @@ set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.
 #
 #----------------------------------------------------------
 
+# We set the nameservers here directly to avoid having the router forward
+# the dns traffic leaking it over eth0.
+#
 set service dhcp-server shared-network-name NET_NSW01_WIFI option domain-name 'wifi.nsw01.sigaint.au'
-set service dhcp-server shared-network-name NET_NSW01_WIFI option name-server '10.120.13.1'
+set service dhcp-server shared-network-name NET_NSW01_WIFI option name-server '45.90.28.189'
+set service dhcp-server shared-network-name NET_NSW01_WIFI option name-server '45.90.30.189'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 option default-router '10.120.13.1'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 range 0 start '10.120.13.100'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 range 0 stop '10.120.13.200'
