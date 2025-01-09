@@ -17,6 +17,8 @@ set system name-server '2a07:a8c1::2a:b561'
 
 # Set welcome banner
 set system login banner post-login 'Welcome to VyOS!\n\n  ┌── ┐\n  . VyOS 1.5 \n  └ ──┘'
+set system login banner post-login "$\n                __\n               / _)\n      _.----._/ /\n     /         /\n  __/ (  | (  | Its a UNIX System!\n /__.-.|_|--|_|    I know this!\n>"
+
 
 # Vyos keys
 set system login user vyos authentication public-keys SK_LAN_LOCAL key 'AAAAC3NzaC1lZDI1NTE5AAAAIFWqGuDHjHW4DBzhvM1Zcww8fvDLZF3Wm+tyHIIXreJJ'
