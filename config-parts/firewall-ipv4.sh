@@ -37,6 +37,27 @@ set firewall ipv4 name ADMIN-PROTECTED rule 100 state 'related'
 set firewall ipv4 name ADMIN-PROTECTED rule 110 action 'reject'
 set firewall ipv4 name ADMIN-PROTECTED rule 110 state 'invalid'
 
+# ADMIN -> LOCAL
+set firewall ipv4 name ADMIN-LOCAL default-action 'reject'
+set firewall ipv4 name ADMIN-LOCAL default-log
+set firewall ipv4 name ADMIN-LOCAL rule 110 action 'accept'
+set firewall ipv4 name ADMIN-LOCAL rule 110 description 'SSH'
+set firewall ipv4 name ADMIN-LOCAL rule 110 destination port '22'
+set firewall ipv4 name ADMIN-LOCAL rule 110 protocol 'tcp'
+
+# LOCAL -> ADMIN
+set firewall ipv4 name LOCAL-ADMIN default-action 'reject'
+set firewall ipv4 name LOCAL-ADMIN  default-log
+set firewall ipv4 name LOCAL-ADMIN rule 100 action 'accept'
+set firewall ipv4 name LOCAL-ADMIN rule 100 state 'established'
+set firewall ipv4 name LOCAL-ADMIN rule 100 state 'related'
+set firewall ipv4 name LOCAL-ADMIN rule 110 action 'reject'
+set firewall ipv4 name LOCAL-ADMIN rule 110 state 'invalid'
+set firewall ipv4 name LOCAL-ADMIN rule 120 description 'Accept traffic to local services'
+set firewall ipv4 name LOCAL-ADMIN rule 120 destination group port-group 'LOCAL_SERVICES'
+set firewall ipv4 name LOCAL-ADMIN rule 120 protocol 'tcp_udp'
+
+
 # LOCAL -> WAN
 set firewall ipv4 name LOCAL-WAN default-action 'reject'
 set firewall ipv4 name LOCAL-WAN default-log

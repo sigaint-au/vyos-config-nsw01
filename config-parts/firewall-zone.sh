@@ -3,7 +3,8 @@
 set firewall zone ADMIN default-action 'reject'
 set firewall zone ADMIN default-log
 set firewall zone ADMIN description 'Device administration network'
-set firewall zone ADMIN from PROTECTED firewall name 'ADMIN-PROTECTED'
+set firewall zone ADMIN from PROTECTED firewall name 'PROTECTED-ADMIN'
+set firewall zone ADMIN from LOCAL firewall name 'LOCAL-ADMIN'
 set firewall zone ADMIN interface 'br0.10'
 
 set firewall zone DMZ default-action 'reject'
@@ -18,12 +19,13 @@ set firewall zone LOCAL from WAN firewall ipv6-name 'WAN-LOCAL-6'
 set firewall zone LOCAL from WIFI firewall ipv6-name 'WIFI-LOCAL-6'
 set firewall zone LOCAL from WAN firewall name 'WAN-LOCAL'
 set firewall zone LOCAL from WIFI firewall name 'WIFI-LOCAL'
+set firewall zone LOCAL from ADMIN firewall name 'ADMIN-LOCAL'
 set firewall zone LOCAL local-zone
 
 set firewall zone PROTECTED default-action 'reject'
 set firewall zone PROTECTED default-log
 set firewall zone PROTECTED description 'Administration with internet access'
-set firewall zone PROTECTED from ADMIN firewall name 'PROTECTED-ADMIN'
+set firewall zone PROTECTED from ADMIN firewall name 'ADMIN-PROTECTED'
 set firewall zone PROTECTED interface 'br0.11'
 
 set firewall zone SECURITY default-action 'reject'
