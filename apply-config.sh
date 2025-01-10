@@ -53,6 +53,16 @@ echo "--------------------------"
 env |  grep -E '^(secret_)'
 
 echo ""
+echo "Loaded host specific env:"
+echo "--------------------------"
+if [ "-f /config/hosts/$(hostname -s).env" ]; then
+  source "/config/hosts/$(hostname).env"
+  env |  grep -E '^(host_)'
+else
+  echo "No host specific env file found"
+fi
+
+echo ""
 echo " Processing config-parts"
 echo "--------------------------"
 # Load all config files
