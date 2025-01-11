@@ -11,4 +11,4 @@ set policy route6 NET-WIFI-VPN-6 rule 5 set table 'main'
 # through the VPN tunnel.
 set policy route6 NET-WIFI-VPN-6 rule 10 description 'Route VLAN13 traffic to table 10'
 set policy route6 NET-WIFI-VPN-6 rule 10 set table '10'
-set policy route6 NET-WIFI-VPN-6 rule 10 source address '2404:e80:4b6f::/64'
+set policy route NET-WIFI-VPN-6 rule 10 source address group network-group 'NSW01_LOCAL_NETS_6'
