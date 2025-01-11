@@ -81,11 +81,11 @@ set interfaces bridge br0 vif 21 description 'NET_NSW01_VMNET'
 set interfaces wireguard wg600 address '10.2.0.2/32'
 set interfaces wireguard wg600 address '2a07:b944::2:2/128'
 set interfaces wireguard wg600 description 'ProtonVPN_DE277'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 address '149.88.102.33'
+#set interfaces wireguard wg600 peer ProtonVPN_DE277 address '217.138.216.98'
 set interfaces wireguard wg600 peer ProtonVPN_DE277 address '2a02:6ea0:1703:3087::10'
 set interfaces wireguard wg600 peer ProtonVPN_DE277 allowed-ips '0.0.0.0/0'
 set interfaces wireguard wg600 peer ProtonVPN_DE277 allowed-ips '::/0'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 persistent-keepalive '15'
+set interfaces wireguard wg600 peer ProtonVPN_DE277 persistent-keepalive '25'
 set interfaces wireguard wg600 peer ProtonVPN_DE277 port '51820'
 set interfaces wireguard wg600 peer ProtonVPN_DE277 public-key "$secret_wireguard_wg600_public_key"
 set interfaces wireguard wg600 private-key "$secret_wireguard_wg600_private_key"

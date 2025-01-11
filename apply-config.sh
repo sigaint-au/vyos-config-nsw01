@@ -56,7 +56,7 @@ echo ""
 echo "Loaded host specific env:"
 echo "--------------------------"
 if [ "-f /config/hosts/$(hostname -s).env" ]; then
-  source "/config/hosts/$(hostname).env"
+  source "/config/hosts/$(hostname -s).env"
   env |  grep -E '^(host_)'
 else
   echo "No host specific env file found"
