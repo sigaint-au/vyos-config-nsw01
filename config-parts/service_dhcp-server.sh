@@ -150,3 +150,11 @@ set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 range 0 start '10.120.13.100'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 range 0 stop '10.120.13.200'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 subnet-id '13'
+
+# Synology
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping lan-nas-01 ip-address '10.120.13.11'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping lan-nas-01 mac '90:09:D0:74:C6:71'
+
+# QNAP
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping lan-nas-02 ip-address '10.120.13.12'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping lan-nas-02 mac '24:5E:BE:18:37:11'
