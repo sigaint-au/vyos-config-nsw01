@@ -114,7 +114,7 @@ set firewall ipv4 name WIFI-LOCAL rule 120 description 'Accept traffic to local 
 set firewall ipv4 name WIFI-LOCAL rule 120 destination group port-group 'LOCAL_SERVICES'
 set firewall ipv4 name WIFI-LOCAL rule 120 protocol 'tcp_udp'
 # For configuring from the wifi use this for now until the proper
-# mgmt network is running. 
+# mgmt network is running.
 set firewall ipv4 name WIFI-LOCAL rule 130 action 'accept'
 set firewall ipv4 name WIFI-LOCAL rule 130 description 'SSH'
 set firewall ipv4 name WIFI-LOCAL rule 130 destination port '22'
