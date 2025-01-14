@@ -10,13 +10,9 @@ set firewall ipv4 name WAN-LOCAL rule 100 action 'accept'
 set firewall ipv4 name WAN-LOCAL rule 100 state 'established'
 set firewall ipv4 name WAN-LOCAL rule 100 state 'related'
 set firewall ipv4 name WAN-LOCAL rule 110 action 'accept'
-set firewall ipv4 name WAN-LOCAL rule 110 description 'SSH'
-set firewall ipv4 name WAN-LOCAL rule 110 destination port '22'
-set firewall ipv4 name WAN-LOCAL rule 110 protocol 'tcp'
-set firewall ipv4 name WAN-LOCAL rule 120 action 'accept'
-set firewall ipv4 name WAN-LOCAL rule 120 description 'Wireguard VPN'
-set firewall ipv4 name WAN-LOCAL rule 120 destination port '51820'
-set firewall ipv4 name WAN-LOCAL rule 120 protocol 'udp'
+set firewall ipv4 name WAN-LOCAL rule 110 description 'Wireguard VPN'
+set firewall ipv4 name WAN-LOCAL rule 110 destination port '51820'
+set firewall ipv4 name WAN-LOCAL rule 110 protocol 'udp'
 
 # WAN -> WIFI
 set firewall ipv4 name WAN-WIFI default-action 'reject'
@@ -26,7 +22,6 @@ set firewall ipv4 name WAN-WIFI rule 100 state 'established'
 set firewall ipv4 name WAN-WIFI rule 100 state 'related'
 set firewall ipv4 name WAN-WIFI rule 110 action 'reject'
 set firewall ipv4 name WAN-WIFI rule 110 state 'invalid'
-
 
 # ADMIN -> PROTECTED
 set firewall ipv4 name ADMIN-PROTECTED default-action 'reject'

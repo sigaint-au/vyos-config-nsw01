@@ -158,3 +158,7 @@ set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24
 # QNAP
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping lan-nas-02 ip-address '10.120.13.12'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping lan-nas-02 mac '24:5E:BE:18:37:11'
+
+#  Plex
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping plex ip-address '10.120.13.10'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping plex mac '1C:69:7A:06:4F:6D'
