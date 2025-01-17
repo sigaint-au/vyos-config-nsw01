@@ -33,6 +33,12 @@ set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping unifi-sw15poe-01 ip-address '10.120.10.25'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping unifi-sw15poe-01 mac '74:83:c2:07:b1:0c'
 
+# Super Micro
+
+# (supermicro-c6c0.mgmt.sigaint.au)
+set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping supermicro-c6c0 ip-address '10.120.10.30'
+set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping supermicro-c6c0 mac '00:25:90:f6:c6:c0'
+
 # iDRAC
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-6BFVY42 ip-address '10.120.10.50'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-6BFVY42 mac '74:e6:e2:fa:70:06'

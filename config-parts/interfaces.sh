@@ -1,10 +1,10 @@
 #/bin/vbash
 
 # Set MAC Addresses
-set interfaces ethernet eth0 hw-id '00:0d:b9:5e:41:34'
-set interfaces ethernet eth1 hw-id '00:0d:b9:5e:41:35'
-set interfaces ethernet eth2 hw-id '00:0d:b9:5e:41:36'
-set interfaces ethernet eth3 hw-id '00:0d:b9:5e:41:37'
+set interfaces ethernet eth0 hw-id "$host_interfaces_ethernet_eth0_mac"
+set interfaces ethernet eth1 hw-id "$host_interfaces_ethernet_eth1_mac"
+set interfaces ethernet eth2 hw-id "$host_interfaces_ethernet_eth2_mac"
+set interfaces ethernet eth3 hw-id "$host_interfaces_ethernet_eth3_mac"
 
 # Offload
 set interfaces ethernet eth0 offload gro
