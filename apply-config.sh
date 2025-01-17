@@ -63,7 +63,7 @@ else
 fi
 
 echo ""
-echo " Processing config-parts"
+echo "Processing config-parts"
 echo "--------------------------"
 # Load all config files
 for f in /config/config-parts/*.sh; do
