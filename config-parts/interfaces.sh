@@ -59,8 +59,9 @@ set interfaces ethernet eth0 ipv6 address autoconf
 
 # Configure bridge interface and VLANs.
 set interfaces bridge br0 enable-vlan
+set interfaces bridge br0 member interface eth1 allowed-vlan '10-50'
+set interfaces bridge br0 member interface eth2 allowed-vlan '10-50'
 set interfaces bridge br0 member interface eth3 allowed-vlan '10-50'
-set interfaces bridge br0 member interface eth4 allowed-vlan '10-50'
 set interfaces bridge br0 stp
 set interfaces bridge br0 vif 10 address '10.120.10.1/24'
 set interfaces bridge br0 vif 10 description 'NET_NSW01_MGMT'
