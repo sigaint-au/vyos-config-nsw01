@@ -58,7 +58,7 @@ set firewall zone PROTON_VPN default-log
 set firewall zone PROTON_VPN description 'WireGuard Tunnel'
 set firewall zone PROTON_VPN from WIFI firewall name 'WIFI-PROTON_VPN'
 set firewall zone PROTON_VPN from WIFI firewall ipv6-name 'WIFI-PROTON_VPN-6'
-set firewall zone PROTON_VPN member interface 'wg00'
+set firewall zone PROTON_VPN member interface 'wg600'
 
 set firewall zone WIFI default-action 'reject'
 set firewall zone WIFI default-log
