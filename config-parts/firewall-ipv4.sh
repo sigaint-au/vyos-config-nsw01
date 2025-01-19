@@ -124,3 +124,15 @@ set firewall ipv4 name LOCAL-WIFI rule 100 state 'established'
 set firewall ipv4 name LOCAL-WIFI rule 100 state 'related'
 set firewall ipv4 name LOCAL-WIFI rule 110 action 'reject'
 set firewall ipv4 name LOCAL-WIFI rule 110 state 'invalid'
+
+# WIFI -> PROTON_VPN
+set firewall ipv4 name WIFI-PROTON_VPN default-action 'reject'
+set firewall ipv4 name WIFI-PROTON_VPN default-log
+set firewall ipv4 name WIFI-PROTON_VPN rule 100 action 'accept'
+set firewall ipv4 name WIFI-PROTON_VPN rule 100 description 'Accept All Traffic'
+
+# PROTON_VPN -> WIFI
+set firewall ipv4 name PROTON_VPN-WIFI default-action 'reject'
+set firewall ipv4 name PROTON_VPN-WIFI default-log
+set firewall ipv4 name PROTON_VPN-WIFI rule 100 action 'accept'
+set firewall ipv4 name PROTON_VPN-WIFI rule 100 description 'Accept All Traffic'

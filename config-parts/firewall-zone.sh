@@ -53,12 +53,20 @@ set firewall zone WAN from WIFI firewall name 'WIFI-WAN'
 set firewall zone WAN from WIFI firewall ipv6-name 'WIFI-WAN-6'
 set firewall zone WAN member interface 'eth0'
 
+set firewall zone PROTON_VPN default-action 'reject'
+set firewall zone PROTON_VPN default-log
+set firewall zone PROTON_VPN description 'WireGuard Tunnel'
+set firewall zone PROTON_VPN from WIFI firewall name 'WIFI-PROTON_VPN'
+set firewall zone PROTON_VPN from WIFI firewall ipv6-name 'WIFI-PROTON_VPN-6'
+set firewall zone PROTON_VPN member interface 'wg00'
+
 set firewall zone WIFI default-action 'reject'
 set firewall zone WIFI default-log
 set firewall zone WIFI description 'WIFI zone'
 set firewall zone WIFI from WAN firewall name 'WAN-WIFI'
 set firewall zone WIFI from WAN firewall ipv6-name 'WAN-WIFI-6'
 set firewall zone WIFI from LOCAL firewall name 'LOCAL-WIFI'
+set firewall zone WIFI from PROTON_VPN firewall name 'PROTON_VPN-WIFI'
+set firewall zone WIFI from PROTON_VPN firewall ipv6-name 'PROTON_VPN-WIFI-6'
 set firewall zone WIFI from LOCAL firewall ipv6-name 'LOCAL-WIFI-6'
 set firewall zone WIFI member interface 'br0.13'
-set firewall zone WIFI member interface 'wg600'

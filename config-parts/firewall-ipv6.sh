@@ -45,19 +45,34 @@ set firewall ipv6 name WIFI-WAN-6 default-log
 set firewall ipv6 name WIFI-WAN-6 description 'WIFI to WAN IPv6'
 #set firewall ipv6 name WIFI-WAN-6 rule 100 action 'accept'
 
+# WIFI -> PROTON_VPN
+# Allow everything though the proton VPN for wifi
+#
+set firewall ipv6 name WIFI-PROTON_VPN-6 default-action 'reject'
+set firewall ipv6 name WIFI-PROTON_VPN-6 default-log
+set firewall ipv6 name WIFI-PROTON_VPN-6 description 'WIFI to WAN IPv6'
+set firewall ipv6 name WIFI-PROTON_VPN-6 rule 100 action 'accept'
+
+# PROTON_VPN -> WIFI
+# Allow everything coming back and from the tunnel
+# We could restrict this a bit more later.
+#
+# todo(mhahl): stateful filtering?
+#
+set firewall ipv6 name PROTON_VPN-WIFI-6 default-action 'reject'
+set firewall ipv6 name PROTON_VPN-WIFI-6 default-log
+set firewall ipv6 name PROTON_VPN-WIFI-6 description 'WIFI to WAN IPv6'
+set firewall ipv6 name PROTON_VPN-WIFI-6 rule 100 action 'accept'
+
 # WAN -> WIFI
 
 # We dont let any packets traverse to the WAN from wifi
 # because we route it via policy through the VPN.
-
+#
 set firewall ipv6 name WAN-WIFI-6 default-action 'reject'
 set firewall ipv6 name WAN-WIFI-6 default-log
 set firewall ipv6 name WAN-WIFI-6 description 'WAN to WIFI IPv6'
-#set firewall ipv6 name WAN-WIFI-6 rule 110 action 'accept'
-#set firewall ipv6 name WAN-WIFI-6 rule 110 state 'established'
-#set firewall ipv6 name WAN-WIFI-6 rule 110 state 'related'
-#set firewall ipv6 name WAN-WIFI-6 rule 120 action 'drop'
-#set firewall ipv6 name WAN-WIFI-6 rule 120 state 'invalid'
+
 
 # LOCAL -> WIFI
 set firewall ipv6 name LOCAL-WIFI-6 default-action 'drop'
