@@ -76,6 +76,9 @@ set firewall ipv4 name LOCAL-WAN rule 140 description 'NTP Servers'
 set firewall ipv4 name LOCAL-WAN rule 140 destination group address-group 'NTP_SERVERS'
 set firewall ipv4 name LOCAL-WAN rule 140 destination port '123'
 set firewall ipv4 name LOCAL-WAN rule 140 protocol 'udp'
+# HTTP For Git and Upgrades
+set firewall ipv4 name LOCAL-WAN rule 150 destination port '80,443'
+set firewall ipv4 name LOCAL-WAN rule 150 protocol 'tcp'
 
 # PROTECTED -> ADMIN
 set firewall ipv4 name PROTECTED-ADMIN default-action 'reject'
