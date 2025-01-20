@@ -1,8 +1,6 @@
 #!/bin/vbash
 
 ## Define NAT rules
-## Currently disabled.
-## NAT rules are not needed for the current configuration.
 #
 #set nat source rule 100 outbound-interface name 'eth0'
 #set nat source rule 100 source address '10.120.0.0/16'

@@ -15,7 +15,7 @@ set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 range 0 stop '10.120.10.200'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 subnet-id '10'
 
-# Unifi Devices
+# UniFi Trash
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping unifi-console ip-address '10.120.10.10'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping unifi-console mac '70:a7:41:f7:bd:5b'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping unifi-ac-lr-01 ip-address '10.120.10.15'

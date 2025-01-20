@@ -3,7 +3,24 @@
 # LOCAL -> WAN
 set firewall ipv6 name LOCAL-WAN-6 default-action 'reject'
 set firewall ipv6 name LOCAL-WAN-6 default-log
-set firewall ipv6 name LOCAL-WAN-6 rule 100 action 'accept'
+# WireGuard
+set firewall ipv6 name LOCAL-WAN-6 rule 120 action 'accept'
+set firewall ipv6 name LOCAL-WAN-6 rule 120 description 'WireGuard Peers'
+set firewall ipv6 name LOCAL-WAN-6 rule 120 destination group address-group 'WG_PEERS_6'
+set firewall ipv6 name LOCAL-WAN-6 rule 120 destination port '51820'
+set firewall ipv6 name LOCAL-WAN-6 rule 120 protocol 'udp'
+# Next DNS
+set firewall ipv6 name LOCAL-WAN-6 rule 130 action 'accept'
+set firewall ipv6 name LOCAL-WAN-6 rule 130 description 'DNS Servers'
+set firewall ipv6 name LOCAL-WAN-6 rule 130 destination group address-group 'DNS_SERVERS_6'
+set firewall ipv6 name LOCAL-WAN-6 rule 130 destination port '53'
+set firewall ipv6 name LOCAL-WAN-6 rule 130 protocol 'udp'
+# Google NTP Servers
+set firewall ipv6 name LOCAL-WAN-6 rule 140 action 'accept'
+set firewall ipv6 name LOCAL-WAN-6 rule 140 description 'NTP Servers'
+set firewall ipv6 name LOCAL-WAN-6 rule 140 destination port '123'
+set firewall ipv6 name LOCAL-WAN-6 rule 140 destination group address-group 'NTP_SERVERS_6'
+set firewall ipv6 name LOCAL-WAN-6 rule 140 protocol 'udp'
 
 # WAN -> LOCAL
 set firewall ipv6 name WAN-LOCAL-6 default-action 'reject'

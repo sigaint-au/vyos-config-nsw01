@@ -4,7 +4,7 @@
 set firewall global-options all-ping enable
 
 # WAN -> LOCAL
-set firewall ipv4 name WAN-LOCAL default-action 'reject'
+set firewall ipv4 name WAN-LOCAL default-action 'drop'
 set firewall ipv4 name WAN-LOCAL default-log
 set firewall ipv4 name WAN-LOCAL rule 100 action 'accept'
 set firewall ipv4 name WAN-LOCAL rule 100 state 'established'
@@ -53,11 +53,29 @@ set firewall ipv4 name LOCAL-ADMIN rule 120 destination group port-group 'LOCAL_
 set firewall ipv4 name LOCAL-ADMIN rule 120 protocol 'tcp_udp'
 set firewall ipv4 name LOCAL-ADMIN rule 120 action 'accept'
 
-
+##
 # LOCAL -> WAN
+#
 set firewall ipv4 name LOCAL-WAN default-action 'reject'
 set firewall ipv4 name LOCAL-WAN default-log
-set firewall ipv4 name LOCAL-WAN rule 100 action 'accept'
+# WireGuard peers Proton and Site2
+set firewall ipv4 name LOCAL-WAN rule 120 action 'accept'
+set firewall ipv4 name LOCAL-WAN rule 120 description 'WireGuard Peers'
+set firewall ipv4 name LOCAL-WAN rule 120 destination group address-group 'WG_PEERS'
+set firewall ipv4 name LOCAL-WAN rule 120 destination port '51820'
+set firewall ipv4 name LOCAL-WAN rule 120 protocol 'udp'
+# Next DNS
+set firewall ipv4 name LOCAL-WAN rule 130 action 'accept'
+set firewall ipv4 name LOCAL-WAN rule 130 description 'DNS Servers'
+set firewall ipv4 name LOCAL-WAN rule 130 destination group address-group 'DNS_SERVERS'
+set firewall ipv4 name LOCAL-WAN rule 130 destination port '53'
+set firewall ipv4 name LOCAL-WAN rule 130 protocol 'udp'
+# Google NTP Servers
+set firewall ipv4 name LOCAL-WAN rule 140 action 'accept'
+set firewall ipv4 name LOCAL-WAN rule 140 description 'NTP Servers'
+set firewall ipv4 name LOCAL-WAN rule 140 destination group address-group 'NTP_SERVERS'
+set firewall ipv4 name LOCAL-WAN rule 140 destination port '123'
+set firewall ipv4 name LOCAL-WAN rule 140 protocol 'udp'
 
 # PROTECTED -> ADMIN
 set firewall ipv4 name PROTECTED-ADMIN default-action 'reject'
@@ -93,8 +111,8 @@ set firewall ipv4 name WIFI-SECURITY rule 120 protocol 'tcp'
 # WIFI -> WAN
 set firewall ipv4 name WIFI-WAN default-action 'reject'
 set firewall ipv4 name WIFI-WAN default-log
-set firewall ipv4 name WIFI-WAN rule 100 action 'accept'
-set firewall ipv4 name WIFI-WAN rule 100 description 'Accept All Traffic'
+set firewall ipv4 name WIFI-WAN rule 100 action 'reject'
+set firewall ipv4 name WIFI-WAN rule 100 description 'Drop all traffic to WAN'
 
 # WIFI -> LOCAL
 set firewall ipv4 name WIFI-LOCAL default-action 'reject'
@@ -108,13 +126,10 @@ set firewall ipv4 name WIFI-LOCAL rule 120 action 'accept'
 set firewall ipv4 name WIFI-LOCAL rule 120 description 'Accept traffic to local services'
 set firewall ipv4 name WIFI-LOCAL rule 120 destination group port-group 'LOCAL_SERVICES'
 set firewall ipv4 name WIFI-LOCAL rule 120 protocol 'tcp_udp'
-# For configuring from the wifi use this for now until the proper
-# mgmt network is running.
 set firewall ipv4 name WIFI-LOCAL rule 130 action 'accept'
 set firewall ipv4 name WIFI-LOCAL rule 130 description 'SSH'
 set firewall ipv4 name WIFI-LOCAL rule 130 destination port '22'
 set firewall ipv4 name WIFI-LOCAL rule 130 protocol 'tcp'
-
 
 # LOCAL -> WIFI
 set firewall ipv4 name LOCAL-WIFI default-action 'reject'
