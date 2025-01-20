@@ -79,6 +79,7 @@ set firewall ipv4 name LOCAL-WAN rule 140 protocol 'udp'
 # HTTP For Git and Upgrades
 set firewall ipv4 name LOCAL-WAN rule 150 destination port '80,443'
 set firewall ipv4 name LOCAL-WAN rule 150 protocol 'tcp'
+set firewall ipv4 name LOCAL-WAN rule 150 action 'accept'
 
 # PROTECTED -> ADMIN
 set firewall ipv4 name PROTECTED-ADMIN default-action 'reject'

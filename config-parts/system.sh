@@ -24,7 +24,7 @@ set system login user vyos authentication public-keys SK_LAN_LOCAL type 'ssh-ed2
 set system login user vyos authentication public-keys YUBIKEY key 'AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPOc+bvxJXokMvERTNCNj51vmmIdaL5zXjlw2m1NxPS3AAAAGHNzaDptYXJrLmhhaGxAc2lnYWludC5hdQ=='
 set system login user vyos authentication public-keys YUBIKEY type 'sk-ssh-ed25519@openssh.com'
 
-set system login user vyos authentication encrypted-password $secret_system_encrypted_password
+#set system login user vyos authentication encrypted-password $secret_system_encrypted_password
 
 # User for myself
 set system login user mhahl authentication public-keys SK_LAN_LOCAL key 'AAAAC3NzaC1lZDI1NTE5AAAAIFWqGuDHjHW4DBzhvM1Zcww8fvDLZF3Wm+tyHIIXreJJ'
