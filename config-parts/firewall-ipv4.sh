@@ -58,6 +58,15 @@ set firewall ipv4 name LOCAL-ADMIN rule 120 action 'accept'
 #
 set firewall ipv4 name LOCAL-WAN default-action 'reject'
 set firewall ipv4 name LOCAL-WAN default-log
+# DHCP
+set firewall ipv4 name LOCAL-WAN rule 100 action 'accept'
+set firewall ipv4 name LOCAL-WAN rule 100 description 'Allow DHCP'
+set firewall ipv4 name LOCAL-WAN rule 140 destination port '68,67'
+set firewall ipv4 name LOCAL-WAN rule 100 protocol 'udp'
+# ICMP
+set firewall ipv4 name LOCAL-WAN rule 110 action 'accept'
+set firewall ipv4 name LOCAL-WAN rule 110 description 'Allow ICMP'
+set firewall ipv4 name LOCAL-WAN rule 110 protocol 'icmp'
 # WireGuard peers Proton and Site2
 set firewall ipv4 name LOCAL-WAN rule 120 action 'accept'
 set firewall ipv4 name LOCAL-WAN rule 120 description 'WireGuard Peers'
