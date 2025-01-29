@@ -28,5 +28,6 @@ set interfaces wireguard wg600 private-key "$secret_wireguard_wg600_private_key"
 ```
 
 # TODO
-* Remove WIFI to ADMIN zone change to PROTECTED-ADMIN
-* Fix IPV6 on ADMIN.
+* Remove temp rules for WIFI-ADMIN
+* Fix IPV6 on NET_NSW01_MGMT.
+* Fix IPv6 LOCAL-WAN-6 to work correctly.

@@ -1,7 +1,7 @@
 #!/bin/vbash
 
 # LOCAL -> WAN
-set firewall ipv6 name LOCAL-WAN-6 default-action 'reject'
+set firewall ipv6 name LOCAL-WAN-6 default-action 'accept'
 set firewall ipv6 name LOCAL-WAN-6 default-log
 # DHCP
 set firewall ipv6 name LOCAL-WAN-6 rule 110 protocol 'icmpv6'
