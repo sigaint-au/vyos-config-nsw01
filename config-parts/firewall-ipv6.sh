@@ -67,23 +67,33 @@ set firewall ipv6 name WIFI-WAN-6 default-log
 set firewall ipv6 name WIFI-WAN-6 description 'WIFI to WAN IPv6'
 
 # WIFI -> PROTON_VPN
-# Allow everything though the proton VPN for wifi
 #
 set firewall ipv6 name WIFI-PROTON_VPN-6 default-action 'reject'
 set firewall ipv6 name WIFI-PROTON_VPN-6 default-log
-set firewall ipv6 name WIFI-PROTON_VPN-6 description 'WIFI to WAN IPv6'
+set firewall ipv6 name WIFI-PROTON_VPN-6 description 'WIFI to PROTON IPv6'
 set firewall ipv6 name WIFI-PROTON_VPN-6 rule 100 action 'accept'
 
 # PROTON_VPN -> WIFI
-# Allow everything coming back and from the tunnel
-# We could restrict this a bit more later.
-#
-# todo(mhahl): stateful filtering?
 #
 set firewall ipv6 name PROTON_VPN-WIFI-6 default-action 'reject'
 set firewall ipv6 name PROTON_VPN-WIFI-6 default-log
-set firewall ipv6 name PROTON_VPN-WIFI-6 description 'WIFI to WAN IPv6'
+set firewall ipv6 name PROTON_VPN-WIFI-6 description 'PROTON to WIFI IPv6'
 set firewall ipv6 name PROTON_VPN-WIFI-6 rule 100 action 'accept'
+
+
+# ADMIN -> PROTON_VPN
+#
+set firewall ipv6 name ADMIN-PROTON_VPN-6 default-action 'reject'
+set firewall ipv6 name ADMIN-PROTON_VPN-6 default-log
+set firewall ipv6 name ADMIN-PROTON_VPN-6 description 'ADMIN to PROTON IPv6'
+set firewall ipv6 name ADMIN-PROTON_VPN-6 rule 100 action 'accept'
+
+# PROTON_VPN -> ADMIN
+#
+set firewall ipv6 name PROTON_VPN-ADMIN-6 default-action 'reject'
+set firewall ipv6 name PROTON_VPN-ADMIN-6 default-log
+set firewall ipv6 name PROTON_VPN-ADMIN-6 description 'PROTON to ADMIN IPv6'
+set firewall ipv6 name PROTON_VPN-ADMIN-6 rule 100 action 'accept'
 
 # WAN -> WIFI
 

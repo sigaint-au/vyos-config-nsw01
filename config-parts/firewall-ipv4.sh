@@ -164,3 +164,28 @@ set firewall ipv4 name PROTON_VPN-WIFI default-action 'reject'
 set firewall ipv4 name PROTON_VPN-WIFI default-log
 set firewall ipv4 name PROTON_VPN-WIFI rule 100 action 'accept'
 set firewall ipv4 name PROTON_VPN-WIFI rule 100 description 'Accept All Traffic'
+
+
+# ADMIN -> PROTON_VPN
+set firewall ipv4 name ADMIN-PROTON_VPN default-action 'reject'
+set firewall ipv4 name ADMIN-PROTON_VPN default-log
+set firewall ipv4 name ADMIN-PROTON_VPN rule 100 action 'accept'
+set firewall ipv4 name ADMIN-PROTON_VPN rule 100 description 'Accept All Traffic'
+
+# PROTON_VPN -> ADMIN
+set firewall ipv4 name PROTON_VPN-ADMIN default-action 'reject'
+set firewall ipv4 name PROTON_VPN-ADMIN default-log
+set firewall ipv4 name PROTON_VPN-ADMIN rule 100 action 'accept'
+set firewall ipv4 name PROTON_VPN-ADMIN rule 100 description 'Accept All Traffic'
+
+# WIFI-ADMIN (XXXX)
+set firewall ipv4 name WIFI-ADMIN default-action 'reject'
+set firewall ipv4 name WIFI-ADMIN default-log
+set firewall ipv4 name WIFI-ADMIN rule 100 action 'accept'
+set firewall ipv4 name WIFI-ADMIN rule 100 description 'Accept All Traffic'
+
+# ADMIN-WIFI
+set firewall ipv4 name ADMIN-WIFI default-action 'reject'
+set firewall ipv4 name ADMIN-WIFI default-log
+set firewall ipv4 name ADMIN-WIFI rule 100 action 'accept'
+set firewall ipv4 name ADMIN-WIFI rule 100 description 'Accept All Traffic'

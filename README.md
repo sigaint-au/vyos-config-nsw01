@@ -26,3 +26,7 @@ To use a secret in an interface for wireguard you might have the following confi
 set interfaces wireguard wg600 peer Site__ABC public-key "$secret_wireguard_wg600_public_key"
 set interfaces wireguard wg600 private-key "$secret_wireguard_wg600_private_key"
 ```
+
+# TODO
+* Remove WIFI to ADMIN zone change to PROTECTED-ADMIN
+* Fix IPV6 on ADMIN.
