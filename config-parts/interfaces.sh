@@ -78,15 +78,14 @@ set interfaces bridge br0 vif 20 description 'NET_NSW01_DMZ'
 set interfaces bridge br0 vif 21 address '10.120.21.1/24'
 set interfaces bridge br0 vif 21 description 'NET_NSW01_VMNET'
 
-# WireGuard configuration for ProtonVPN DE277
+# WireGuard configuration for ProtonVPN US500
 set interfaces wireguard wg600 address '10.2.0.2/32'
 set interfaces wireguard wg600 address '2a07:b944::2:2/128'
-set interfaces wireguard wg600 description 'ProtonVPN_DE277'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 address '217.138.216.98'
-#set interfaces wireguard wg600 peer ProtonVPN_DE277 address '2a02:6ea0:1703:3087::10'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 allowed-ips '0.0.0.0/0'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 allowed-ips '::/0'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 persistent-keepalive '25'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 port '51820'
-set interfaces wireguard wg600 peer ProtonVPN_DE277 public-key "$secret_wireguard_wg600_public_key"
+set interfaces wireguard wg600 description 'ProtonVPN_US500'
+set interfaces wireguard wg600 peer ProtonVPN_WG_1 address '149.22.80.82'
+set interfaces wireguard wg600 peer ProtonVPN_WG_1 allowed-ips '0.0.0.0/0'
+set interfaces wireguard wg600 peer ProtonVPN_WG_1 allowed-ips '::/0'
+set interfaces wireguard wg600 peer ProtonVPN_WG_1 persistent-keepalive '25'
+set interfaces wireguard wg600 peer ProtonVPN_WG_1 port '51820'
+set interfaces wireguard wg600 peer ProtonVPN_WG_1 public-key "$secret_wireguard_wg600_public_key"
 set interfaces wireguard wg600 private-key "$secret_wireguard_wg600_private_key"

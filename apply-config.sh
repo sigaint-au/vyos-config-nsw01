@@ -22,7 +22,7 @@ while getopts "cde" options; do
     ;;
   e)
     echo 'Encrypting secrets'
-    gpg --encrypt-files secrets/*
+    gpg -c secrets/credentials.env
     find secrets/ ! -name "*.gpg" -type f -print | xargs rm
     exit 0
     ;;
