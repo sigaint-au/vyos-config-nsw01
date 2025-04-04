@@ -184,7 +184,7 @@ set firewall ipv4 name WIFI-ADMIN default-log
 set firewall ipv4 name WIFI-ADMIN rule 100 action 'accept'
 set firewall ipv4 name WIFI-ADMIN rule 100 description 'Accept All Traffic'
 
-# ADMIN-WIFI
+# ADMIN-WIFI (XXXX)
 set firewall ipv4 name ADMIN-WIFI default-action 'reject'
 set firewall ipv4 name ADMIN-WIFI default-log
 set firewall ipv4 name ADMIN-WIFI rule 100 action 'accept'
