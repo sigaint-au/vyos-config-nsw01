@@ -89,7 +89,8 @@ set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11
 #
 #----------------------------------------------------------
 set service dhcp-server shared-network-name NET_NSW01_HOSTING option domain-name 'ocp.nsw01.sigaint.au'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '10.120.14.1'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '45.90.28.189'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '45.90.30.189'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 option default-router '10.120.14.1'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 range 0 start '10.120.14.100'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 range 0 stop '10.120.14.200'
