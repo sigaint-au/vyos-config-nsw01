@@ -115,3 +115,17 @@ set firewall ipv6 name LOCAL-WIFI-6 rule 120 action 'drop'
 set firewall ipv6 name LOCAL-WIFI-6 rule 120 state 'invalid'
 set firewall ipv6 name LOCAL-WIFI-6 rule 130 action 'accept'
 set firewall ipv6 name LOCAL-WIFI-6 rule 130 protocol 'icmpv6'
+
+# HOSTING -> PROTON_VPN
+#
+set firewall ipv6 name HOSTING-PROTON_VPN-6 default-action 'reject'
+set firewall ipv6 name HOSTING-PROTON_VPN-6 default-log
+set firewall ipv6 name HOSTING-PROTON_VPN-6 description 'HOSTING to PROTON IPv6'
+set firewall ipv6 name HOSTING-PROTON_VPN-6 rule 100 action 'accept'
+
+# PROTON_VPN -> HOSTING
+#
+set firewall ipv6 name PROTON_VPN-HOSTING-6 default-action 'reject'
+set firewall ipv6 name PROTON_VPN-HOSTING-6 default-log
+set firewall ipv6 name PROTON_VPN-HOSTING-6 description 'PROTON to HOSTING IPv6'
+set firewall ipv6 name PROTON_VPN-HOSTING-6 rule 100 action 'accept'
