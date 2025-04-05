@@ -127,6 +127,12 @@ set firewall ipv4 name WIFI-WAN default-log
 set firewall ipv4 name WIFI-WAN rule 100 action 'reject'
 set firewall ipv4 name WIFI-WAN rule 100 description 'Drop all traffic to WAN'
 
+# HOSTING -> WAN
+set firewall ipv4 name HOSTING-WAN default-action 'reject'
+set firewall ipv4 name HOSTING-WAN default-log
+set firewall ipv4 name HOSTING-WAN rule 100 action 'reject'
+set firewall ipv4 name HOSTING-WAN rule 100 description 'Drop all traffic to WAN'
+
 # WIFI -> LOCAL
 set firewall ipv4 name WIFI-LOCAL default-action 'reject'
 set firewall ipv4 name WIFI-LOCAL default-log
