@@ -129,3 +129,33 @@ set firewall ipv6 name PROTON_VPN-HOSTING-6 default-action 'reject'
 set firewall ipv6 name PROTON_VPN-HOSTING-6 default-log
 set firewall ipv6 name PROTON_VPN-HOSTING-6 description 'PROTON to HOSTING IPv6'
 set firewall ipv6 name PROTON_VPN-HOSTING-6 rule 100 action 'accept'
+
+# LOCAL -> HOSTING
+set firewall ipv6 name LOCAL-HOSTING-6 default-action 'drop'
+set firewall ipv6 name LOCAL-HOSTING-6 default-log
+set firewall ipv6 name LOCAL-HOSTING-6 description 'LOCAL to HOSTING IPv6'
+set firewall ipv6 name LOCAL-HOSTING-6 rule 110 action 'accept'
+set firewall ipv6 name LOCAL-HOSTING-6 rule 110 state 'established'
+set firewall ipv6 name LOCAL-HOSTING-6 rule 110 state 'related'
+set firewall ipv6 name LOCAL-HOSTING-6 rule 120 action 'drop'
+set firewall ipv6 name LOCAL-HOSTING-6 rule 120 state 'invalid'
+set firewall ipv6 name LOCAL-HOSTING-6 rule 130 action 'accept'
+set firewall ipv6 name LOCAL-HOSTING-6 rule 130 protocol 'icmpv6'
+
+# HOSTING -> LOCAL
+set firewall ipv6 name HOSTING-LOCAL-6 default-action 'reject'
+set firewall ipv6 name HOSTING-LOCAL-6 default-log
+set firewall ipv6 name HOSTING-LOCAL-6 description 'HOSTING to LOCAL IPv6'
+set firewall ipv6 name HOSTING-LOCAL-6 rule 100 action 'accept'
+set firewall ipv6 name HOSTING-LOCAL-6 rule 100 protocol 'icmpv6'
+set firewall ipv6 name HOSTING-LOCAL-6 rule 110 action 'accept'
+set firewall ipv6 name HOSTING-LOCAL-6 rule 110 description 'DHCPv6 Replies'
+set firewall ipv6 name HOSTING-LOCAL-6 rule 110 destination port '546'
+set firewall ipv6 name HOSTING-LOCAL-6 rule 110 protocol 'udp'
+set firewall ipv6 name HOSTING-LOCAL-6 rule 110 source port '547'
+
+# HOSTING -> WAN
+# Reject all - force thought VPN via policy.
+set firewall ipv6 name HOSTING-WAN-6 default-action 'reject'
+set firewall ipv6 name HOSTING-WAN-6 default-log
+set firewall ipv6 name HOSTING-WAN-6 description 'HOSTING to WAN IPv6'

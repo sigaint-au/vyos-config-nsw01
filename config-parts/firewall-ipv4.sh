@@ -201,3 +201,21 @@ set firewall ipv4 name PROTON_VPN-HOSTING default-action 'reject'
 set firewall ipv4 name PROTON_VPN-HOSTING default-log
 set firewall ipv4 name PROTON_VPN-HOSTING rule 100 action 'accept'
 set firewall ipv4 name PROTON_VPN-HOSTING rule 100 description 'Accept All Traffic'
+
+# HOSTING -> LOCAL
+set firewall ipv4 name HOSTING-LOCAL default-action 'reject'
+set firewall ipv4 name HOSTING-LOCAL default-log
+set firewall ipv4 name HOSTING-LOCAL rule 100 action 'accept'
+set firewall ipv4 name HOSTING-LOCAL rule 100 state 'established'
+set firewall ipv4 name HOSTING-LOCAL rule 100 state 'related'
+set firewall ipv4 name HOSTING-LOCAL rule 110 action 'reject'
+set firewall ipv4 name HOSTING-LOCAL rule 110 state 'invalid'
+
+# LOCAL -> HOSTING
+set firewall ipv4 name LOCAL-HOSTING default-action 'reject'
+set firewall ipv4 name LOCAL-HOSTING default-log
+set firewall ipv4 name LOCAL-HOSTING rule 100 action 'accept'
+set firewall ipv4 name LOCAL-HOSTING rule 100 state 'established'
+set firewall ipv4 name LOCAL-HOSTING rule 100 state 'related'
+set firewall ipv4 name LOCAL-HOSTING rule 110 action 'reject'
+set firewall ipv4 name LOCAL-HOSTING rule 110 state 'invalid'
