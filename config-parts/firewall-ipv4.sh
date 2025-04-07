@@ -225,3 +225,25 @@ set firewall ipv4 name LOCAL-HOSTING rule 100 state 'established'
 set firewall ipv4 name LOCAL-HOSTING rule 100 state 'related'
 set firewall ipv4 name LOCAL-HOSTING rule 110 action 'reject'
 set firewall ipv4 name LOCAL-HOSTING rule 110 state 'invalid'
+
+# WIFI -> HOSTING
+set firewall ipv4 name WIFI-HOSTING default-action 'reject'
+set firewall ipv4 name WIFI-HOSTING default-log
+set firewall ipv4 name WIFI-HOSTING rule 100 action 'accept'
+set firewall ipv4 name WIFI-HOSTING rule 100 state 'established'
+set firewall ipv4 name WIFI-HOSTING rule 100 state 'related'
+set firewall ipv4 name WIFI-HOSTING rule 110 action 'reject'
+set firewall ipv4 name WIFI-HOSTING rule 110 state 'invalid'
+set firewall ipv4 name WIFI-HOSTING rule 120 action 'accept'
+set firewall ipv4 name WIFI-HOSTING rule 120 description 'Accept traffic to horizon.sigaint.au'
+set firewall ipv4 name WIFI-HOSTING rule 120 destination address "10.120.14.5"
+
+# HOSTING -> WIFI
+set firewall ipv4 name HOSTING-WIFI default-action 'reject'
+set firewall ipv4 name HOSTING-WIFI default-log
+set firewall ipv4 name HOSTING-WIFI rule 100 action 'accept'
+set firewall ipv4 name HOSTING-WIFI rule 100 state 'established'
+set firewall ipv4 name HOSTING-WIFI rule 100 state 'related'
+set firewall ipv4 name HOSTING-WIFI rule 110 action 'reject'
+set firewall ipv4 name HOSTING-WIFI rule 110 state 'invalid'
+
