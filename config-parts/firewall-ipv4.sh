@@ -237,6 +237,9 @@ set firewall ipv4 name WIFI-HOSTING rule 110 state 'invalid'
 set firewall ipv4 name WIFI-HOSTING rule 120 action 'accept'
 set firewall ipv4 name WIFI-HOSTING rule 120 description 'Accept traffic to horizon.sigaint.au'
 set firewall ipv4 name WIFI-HOSTING rule 120 destination address "10.120.14.5"
+set firewall ipv4 name WIFI-HOSTING rule 130 action 'accept'
+set firewall ipv4 name WIFI-HOSTING rule 130 description 'Accept traffic to satellite.hosting.sigaint.au'
+set firewall ipv4 name WIFI-HOSTING rule 130 destination address "10.120.14.10"
 
 # HOSTING -> WIFI
 set firewall ipv4 name HOSTING-WIFI default-action 'reject'
