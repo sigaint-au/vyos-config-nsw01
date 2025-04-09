@@ -2,12 +2,12 @@
 
 ## Define NAT rules
 #
-#set nat source rule 100 outbound-interface name 'eth0'
-#set nat source rule 100 source address '10.120.0.0/16'
-#set nat source rule 100 translation address 'masquerade'
+set nat source rule 50 outbound-interface name 'eth0'
+set nat source rule 50 source address '10.120.0.0/16'
+set nat source rule 50 translation address 'masquerade'
 
-set nat source rule 100 outbound-interface name 'wg600'
-set nat source rule 100 translation address 'masquerade'
+#set nat source rule 100 outbound-interface name 'wg600'
+#set nat source rule 100 translation address 'masquerade'
 
 # Force port 53 traffic to use local dns
 #set nat destination rule 102 description 'Force DNS for Wifi'
