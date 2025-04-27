@@ -92,6 +92,7 @@ set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11
 # Domain:   hosting.nsw01.sigaint.au
 #
 #----------------------------------------------------------
+set service dhcp-server shared-network-name NET_NSW01_HOSTING disable
 set service dhcp-server shared-network-name NET_NSW01_HOSTING option domain-name 'ocp.nsw01.sigaint.au'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '45.90.28.189'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '45.90.30.189'
