@@ -254,3 +254,31 @@ set firewall ipv4 name LOCAL-DMZ rule 100 state 'established'
 set firewall ipv4 name LOCAL-DMZ rule 100 state 'related'
 set firewall ipv4 name LOCAL-DMZ rule 110 action 'reject'
 set firewall ipv4 name LOCAL-DMZ rule 110 state 'invalid'
+
+# DMZ -> VMNET
+set firewall ipv4 name DMZ-VMNET default-action 'reject'
+set firewall ipv4 name DMZ-VMNET default-log
+set firewall ipv4 name DMZ-VMNET rule 100 action 'accept'
+set firewall ipv4 name DMZ-VMNET rule 100 state 'established'
+set firewall ipv4 name DMZ-VMNET rule 100 state 'related'
+set firewall ipv4 name DMZ-VMNET rule 110 action 'reject'
+set firewall ipv4 name DMZ-VMNET rule 110 state 'invalid'
+
+# VMNET -> DMZ
+set firewall ipv4 name VMNET-DMZ default-action 'reject'
+set firewall ipv4 name VMNET-DMZ default-log
+set firewall ipv4 name VMNET-DMZ rule 100 action 'accept'
+
+# DMZ -> WIFI
+set firewall ipv4 name DMZ-WIFI default-action 'reject'
+set firewall ipv4 name DMZ-WIFI default-log
+set firewall ipv4 name DMZ-WIFI rule 100 action 'accept'
+set firewall ipv4 name DMZ-WIFI rule 100 state 'established'
+set firewall ipv4 name DMZ-WIFI rule 100 state 'related'
+set firewall ipv4 name DMZ-WIFI rule 110 action 'reject'
+set firewall ipv4 name DMZ-WIFI rule 110 state 'invalid'
+
+# WIFI -> DMZ
+set firewall ipv4 name WIFI-DMZ default-action 'reject'
+set firewall ipv4 name WIFI-DMZ default-log
+set firewall ipv4 name WIFI-DMZ rule 100 action 'accept'
