@@ -44,11 +44,6 @@ set firewall zone SHARED default-log
 set firewall zone SHARED description 'Shared insecure infrastructure'
 set firewall zone SHARED member interface 'br0.15'
 
-set firewall zone VMNET default-action 'reject'
-set firewall zone VMNET default-log
-set firewall zone VMNET description 'Internal hosting'
-set firewall zone VMNET member interface 'br0.21'
-
 set firewall zone WAN default-action 'reject'
 set firewall zone WAN default-log
 set firewall zone WAN description 'The Internet'
