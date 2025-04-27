@@ -117,3 +117,31 @@ set firewall ipv6 name WAN-HOSTING-6 rule 110 state 'established'
 set firewall ipv6 name WAN-HOSTING-6 rule 110 state 'related'
 set firewall ipv6 name WAN-HOSTING-6 rule 120 action 'drop'
 set firewall ipv6 name WAN-HOSTING-6 rule 120 state 'invalid'
+
+# VMNET -> LOCAL
+set firewall ipv6 name VMNET-LOCAL-6 default-action 'reject'
+set firewall ipv6 name VMNET-LOCAL-6 default-log
+set firewall ipv6 name VMNET-LOCAL-6 description 'VMNET to LOCAL IPv6'
+set firewall ipv6 name VMNET-LOCAL-6 rule 100 action 'accept'
+set firewall ipv6 name VMNET-LOCAL-6 rule 100 protocol 'icmpv6'
+set firewall ipv6 name VMNET-LOCAL-6 rule 110 action 'accept'
+set firewall ipv6 name VMNET-LOCAL-6 rule 110 description 'DHCPv6 Replies'
+set firewall ipv6 name VMNET-LOCAL-6 rule 110 destination port '546'
+set firewall ipv6 name VMNET-LOCAL-6 rule 110 protocol 'udp'
+set firewall ipv6 name VMNET-LOCAL-6 rule 110 source port '547'
+
+# VMNET -> WAN
+set firewall ipv6 name VMNET-WAN-6 default-action 'reject'
+set firewall ipv6 name VMNET-WAN-6 default-log
+set firewall ipv6 name VMNET-WAN-6 description 'VMNET to WAN IPv6'
+set firewall ipv6 name VMNET-WAN-6 rule 100 action 'accept'
+
+# WAN -> VMNET
+set firewall ipv6 name WAN-VMNET-6 default-action 'drop'
+set firewall ipv6 name WAN-VMNET-6 default-log
+set firewall ipv6 name WAN-VMNET-6 description 'WAN to VMNET IPv6'
+set firewall ipv6 name WAN-VMNET-6 rule 110 action 'accept'
+set firewall ipv6 name WAN-VMNET-6 rule 110 state 'established'
+set firewall ipv6 name WAN-VMNET-6 rule 110 state 'related'
+set firewall ipv6 name WAN-VMNET-6 rule 120 action 'drop'
+set firewall ipv6 name WAN-VMNET-6 rule 120 state 'invalid'
