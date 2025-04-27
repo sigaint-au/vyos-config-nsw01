@@ -8,9 +8,13 @@ set firewall zone ADMIN from LOCAL firewall name 'LOCAL-ADMIN'
 set firewall zone ADMIN from WIFI firewall name 'WIFI-ADMIN'
 set firewall zone ADMIN member interface 'br0.10'
 
-set firewall zone DMZ default-action 'reject'
+set firewall zone DMZ default-action 'accept'
 set firewall zone DMZ default-log
 set firewall zone DMZ description 'Internet connected'
+set firewall zone DMZ from WAN firewall name 'WAN-DMZ'
+set firewall zone DMZ from WAN firewall ipv6-name 'WAN-DMZ-6'
+set firewall zone DMZ from LOCAL firewall name 'LOCAL-DMZ'
+set firewall zone DMZ from LOCAL firewall ipv6-name 'LOCAL-DMZ-6'
 set firewall zone DMZ member interface 'br0.20'
 
 set firewall zone LOCAL default-action 'reject'

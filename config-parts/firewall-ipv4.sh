@@ -202,6 +202,12 @@ set firewall ipv4 name WAN-VMNET rule 100 state 'related'
 set firewall ipv4 name WAN-VMNET rule 110 action 'reject'
 set firewall ipv4 name WAN-VMNET rule 110 state 'invalid'
 
+# VMNET -> WAN
+set firewall ipv4 name VMNET-WAN default-action 'reject'
+set firewall ipv4 name VMNET-WAN default-log
+set firewall ipv4 name VMNET-WAN rule 100 action 'accept'
+set firewall ipv4 name VMNET-WAN rule 100 description 'Allow all traffic to WAN'
+
 # VMNET -> LOCAL
 set firewall ipv4 name VMNET-LOCAL default-action 'reject'
 set firewall ipv4 name VMNET-LOCAL default-log
@@ -220,8 +226,31 @@ set firewall ipv4 name LOCAL-VMNET rule 100 state 'related'
 set firewall ipv4 name LOCAL-VMNET rule 110 action 'reject'
 set firewall ipv4 name LOCAL-VMNET rule 110 state 'invalid'
 
-# VMNET -> WAN
-set firewall ipv4 name VMNET-WAN default-action 'reject'
-set firewall ipv4 name VMNET-WAN default-log
-set firewall ipv4 name VMNET-WAN rule 100 action 'accept'
-set firewall ipv4 name VMNET-WAN rule 100 description 'Allow all traffic to WAN'
+# WAN -> DMZ
+set firewall ipv4 name WAN-DMZ default-action 'reject'
+set firewall ipv4 name WAN-DMZ default-log
+set firewall ipv4 name WAN-DMZ rule 100 action 'accept'
+
+# DMZ -> WAN
+set firewall ipv4 name DMZ-WAN default-action 'reject'
+set firewall ipv4 name DMZ-WAN default-log
+set firewall ipv4 name DMZ-WAN rule 100 action 'accept'
+set firewall ipv4 name DMZ-WAN rule 100 description 'Allow all traffic to WAN'
+
+# DMZ -> LOCAL
+set firewall ipv4 name DMZ-LOCAL default-action 'reject'
+set firewall ipv4 name DMZ-LOCAL default-log
+set firewall ipv4 name DMZ-LOCAL rule 100 action 'accept'
+set firewall ipv4 name DMZ-LOCAL rule 100 state 'established'
+set firewall ipv4 name DMZ-LOCAL rule 100 state 'related'
+set firewall ipv4 name DMZ-LOCAL rule 110 action 'reject'
+set firewall ipv4 name DMZ-LOCAL rule 110 state 'invalid'
+
+# LOCAL -> DMZ
+set firewall ipv4 name LOCAL-DMZ default-action 'reject'
+set firewall ipv4 name LOCAL-DMZ default-log
+set firewall ipv4 name LOCAL-DMZ rule 100 action 'accept'
+set firewall ipv4 name LOCAL-DMZ rule 100 state 'established'
+set firewall ipv4 name LOCAL-DMZ rule 100 state 'related'
+set firewall ipv4 name LOCAL-DMZ rule 110 action 'reject'
+set firewall ipv4 name LOCAL-DMZ rule 110 state 'invalid'
