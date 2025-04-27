@@ -78,6 +78,18 @@ set firewall ipv6 name LOCAL-WIFI-6 rule 120 state 'invalid'
 set firewall ipv6 name LOCAL-WIFI-6 rule 130 action 'accept'
 set firewall ipv6 name LOCAL-WIFI-6 rule 130 protocol 'icmpv6'
 
+# LOCAL -> VMNET
+set firewall ipv6 name LOCAL-VMNET-6 default-action 'drop'
+set firewall ipv6 name LOCAL-VMNET-6 default-log
+set firewall ipv6 name LOCAL-VMNET-6 description 'LOCAL to VMNET IPv6'
+set firewall ipv6 name LOCAL-VMNET-6 rule 110 action 'accept'
+set firewall ipv6 name LOCAL-VMNET-6 rule 110 state 'established'
+set firewall ipv6 name LOCAL-VMNET-6 rule 110 state 'related'
+set firewall ipv6 name LOCAL-VMNET-6 rule 120 action 'drop'
+set firewall ipv6 name LOCAL-VMNET-6 rule 120 state 'invalid'
+set firewall ipv6 name LOCAL-VMNET-6 rule 130 action 'accept'
+set firewall ipv6 name LOCAL-VMNET-6 rule 130 protocol 'icmpv6'
+
 # LOCAL -> HOSTING
 set firewall ipv6 name LOCAL-HOSTING-6 default-action 'drop'
 set firewall ipv6 name LOCAL-HOSTING-6 default-log
