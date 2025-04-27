@@ -219,3 +219,9 @@ set firewall ipv4 name LOCAL-VMNET rule 100 state 'established'
 set firewall ipv4 name LOCAL-VMNET rule 100 state 'related'
 set firewall ipv4 name LOCAL-VMNET rule 110 action 'reject'
 set firewall ipv4 name LOCAL-VMNET rule 110 state 'invalid'
+
+# VMNET -> WAN
+set firewall ipv4 name VMNET-WAN default-action 'reject'
+set firewall ipv4 name VMNET-WAN default-log
+set firewall ipv4 name VMNET-WAN rule 100 action 'accept'
+set firewall ipv4 name VMNET-WAN rule 100 description 'Allow all traffic to WAN'
