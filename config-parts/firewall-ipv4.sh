@@ -250,10 +250,6 @@ set firewall ipv4 name DMZ-LOCAL rule 110 state 'invalid'
 set firewall ipv4 name LOCAL-DMZ default-action 'reject'
 set firewall ipv4 name LOCAL-DMZ default-log
 set firewall ipv4 name LOCAL-DMZ rule 100 action 'accept'
-set firewall ipv4 name LOCAL-DMZ rule 100 state 'established'
-set firewall ipv4 name LOCAL-DMZ rule 100 state 'related'
-set firewall ipv4 name LOCAL-DMZ rule 110 action 'reject'
-set firewall ipv4 name LOCAL-DMZ rule 110 state 'invalid'
 
 # DMZ -> VMNET
 set firewall ipv4 name DMZ-VMNET default-action 'reject'

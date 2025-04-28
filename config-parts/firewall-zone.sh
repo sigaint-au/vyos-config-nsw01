@@ -63,6 +63,8 @@ set firewall zone WAN from HOSTING firewall name 'HOSTING-WAN'
 set firewall zone WAN from HOSTING firewall ipv6-name 'HOSTING-WAN-6'
 set firewall zone WAN from VMNET firewall name 'VMNET-WAN'
 set firewall zone WAN from VMNET firewall ipv6-name 'VMNET-WAN-6'
+set firewall zone WAN from DMZ firewall name 'DMZ-WAN'
+set firewall zone WAN from DMZ firewall ipv6-name 'DMZ-WAN-6'
 set firewall zone WAN member interface 'eth0'
 
 set firewall zone HOSTING default-action 'reject'
