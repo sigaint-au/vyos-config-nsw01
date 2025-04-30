@@ -157,8 +157,12 @@ set firewall ipv4 name HOSTING-LOCAL default-log
 set firewall ipv4 name HOSTING-LOCAL rule 100 action 'accept'
 set firewall ipv4 name HOSTING-LOCAL rule 100 state 'established'
 set firewall ipv4 name HOSTING-LOCAL rule 100 state 'related'
-set firewall ipv4 name HOSTING-LOCAL rule 110 action 'reject'
-set firewall ipv4 name HOSTING-LOCAL rule 110 state 'invalid'
+set firewall ipv4 name HOSTING-LOCAL rule 120 action 'accept'
+set firewall ipv4 name HOSTING-LOCAL rule 120 description 'Accept traffic to local services'
+set firewall ipv4 name HOSTING-LOCAL rule 120 destination group port-group 'LOCAL_SERVICES'
+set firewall ipv4 name HOSTING-LOCAL rule 120 protocol 'tcp_udp'
+set firewall ipv4 name HOSTING-LOCAL rule 130 action 'reject'
+set firewall ipv4 name HOSTING-LOCAL rule 130 state 'invalid'
 
 # LOCAL -> HOSTING
 set firewall ipv4 name LOCAL-HOSTING default-action 'reject'
@@ -177,12 +181,20 @@ set firewall ipv4 name WIFI-HOSTING rule 100 state 'established'
 set firewall ipv4 name WIFI-HOSTING rule 100 state 'related'
 set firewall ipv4 name WIFI-HOSTING rule 110 action 'reject'
 set firewall ipv4 name WIFI-HOSTING rule 110 state 'invalid'
+
 set firewall ipv4 name WIFI-HOSTING rule 120 action 'accept'
 set firewall ipv4 name WIFI-HOSTING rule 120 description 'Accept traffic to horizon.sigaint.au'
 set firewall ipv4 name WIFI-HOSTING rule 120 destination address "10.120.14.5"
+
 set firewall ipv4 name WIFI-HOSTING rule 130 action 'accept'
-set firewall ipv4 name WIFI-HOSTING rule 130 description 'Accept traffic to satellite.hosting.sigaint.au'
-set firewall ipv4 name WIFI-HOSTING rule 130 destination address "10.120.14.10"
+set firewall ipv4 name WIFI-HOSTING rule 130 description 'Accept traffic to OpenShift services'
+set firewall ipv4 name WIFI-HOSTING rule 130 destination group port-group 'OCP_PORTS'
+set firewall ipv4 name WIFI-HOSTING rule 130 destination group address-group 'OCP_VIPS'
+set firewall ipv4 name WIFI-HOSTING rule 130 protocol 'tcp'
+
+set firewall ipv4 name WIFI-HOSTING rule 140 action 'accept'
+set firewall ipv4 name WIFI-HOSTING rule 140 description 'Accept traffic to satellite.hosting.sigaint.au'
+set firewall ipv4 name WIFI-HOSTING rule 140 destination address "10.120.14.10"
 
 # HOSTING -> WIFI
 set firewall ipv4 name HOSTING-WIFI default-action 'reject'

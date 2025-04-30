@@ -15,6 +15,10 @@ set firewall group ipv6-address-group DNS_SERVERS_6 address '2a07:a8c1::2a:b561'
 set firewall group address-group WG_PEERS address '217.138.216.98'
 set firewall group address-group WG_PEERS address '159.196.99.195'
 
+set firewall group address-group OCP_VIPS address '10.120.14.5'
+set firewall group address-group OCP_VIPS address '10.120.14.6'
+
+
 # Proton IPv6
 # Second Site Ipv6
 #
