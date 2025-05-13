@@ -88,6 +88,8 @@ set firewall zone WIFI from LOCAL firewall name 'LOCAL-WIFI'
 set firewall zone WIFI from LOCAL firewall ipv6-name 'LOCAL-WIFI-6'
 set firewall zone WIFI from ADMIN firewall name 'ADMIN-WIFI'
 set firewall zone WIFI from HOSTING firewall name 'HOSTING-WIFI'
+set firewall zone WIFI from DMZ firewall name 'DMZ-WIFI'
+set firewall zone WIFI from DMZ firewall ipv6-name 'DMZ-WIFI-6'
 set firewall zone WIFI member interface 'br0.13'
 
 set firewall zone VMNET default-action 'reject'
