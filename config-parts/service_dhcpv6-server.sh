@@ -15,3 +15,7 @@ set service dhcpv6-server shared-network-name NET_NSW01_WIFI_6 subnet 2404:e80:4
 # Hosting
 set service dhcpv6-server shared-network-name NET_NSW01_HOSTING_6 option domain-search 'hosting.nsw01.sigaint.au'
 set service dhcpv6-server shared-network-name NET_NSW01_HOSTING_6 subnet 2404:e80:4b6f:5::/64 subnet-id '14'
+
+# VMNET
+set service dhcpv6-server shared-network-name NET_NSW01_VMNET_6 option domain-search 'vmnet.nsw01.sigaint.au'
+set service dhcpv6-server shared-network-name NET_NSW01_VMNET_6 subnet 2404:e80:4b6f:6::/64 subnet-id '21'
