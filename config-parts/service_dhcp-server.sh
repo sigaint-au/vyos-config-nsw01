@@ -67,8 +67,8 @@ set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24
 set service dhcp-server shared-network-name NET_NSW01_DMZ option domain-name 'dmz.nsw01.sigaint.au'
 set service dhcp-server shared-network-name NET_NSW01_DMZ option name-server '10.120.20.1'
 set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 option default-router '10.120.20.1'
-set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 range 0 start '10.120.20.10'
-set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 range 0 stop '10.120.20.100'
+set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 range 0 start '10.120.20.100'
+set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 range 0 stop '10.120.20.200'
 set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 subnet-id '20'
 
 #----------------------------------------------------------
@@ -81,8 +81,8 @@ set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 
 set service dhcp-server shared-network-name NET_NSW01_PROTECTED option domain-name 'protected.nsw01.sigaint.au'
 set service dhcp-server shared-network-name NET_NSW01_PROTECTED option name-server '10.120.11.1'
 set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 option default-router '10.120.11.1'
-set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 range 0 start '10.120.11.10'
-set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 range 0 stop '10.120.11.100'
+set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 range 0 start '10.120.11.100'
+set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 range 0 stop '10.120.11.200'
 set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11.0/24 subnet-id '11'
 
 #----------------------------------------------------------
@@ -128,8 +128,8 @@ set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0
 set service dhcp-server shared-network-name NET_NSW01_SECURITY option domain-name 'security.nsw01.sigaint.au'
 set service dhcp-server shared-network-name NET_NSW01_SECURITY option name-server '10.120.12.1'
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 option default-router '10.120.12.1'
-set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 range 0 start '10.120.12.10'
-set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 range 0 stop '10.120.12.100'
+set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 range 0 start '10.120.12.100'
+set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 range 0 stop '10.120.12.200'
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 subnet-id '12'
 
 # Security Cameras for NSW01
@@ -178,3 +178,18 @@ set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24
 #  Plex
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping plex ip-address '10.120.13.10'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping plex mac '1C:69:7A:06:4F:6D'
+
+#----------------------------------------------------------
+# Name:     NET_NSW01_VMNET
+# Network:  10.120.21.1
+# VLAN:     21
+# Domain:   vmnet.nsw01.sigaint.au
+#
+#----------------------------------------------------------
+set service dhcp-server shared-network-name NET_NSW01_VMNET option domain-name 'vmnet.nsw01.sigaint.au'
+set service dhcp-server shared-network-name NET_NSW01_VMNET option name-server '10.120.21.1'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 option default-router '10.120.21.1'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 range 0 start '10.120.21.100'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 range 0 stop '10.120.21.200'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 subnet-id '21'
+
