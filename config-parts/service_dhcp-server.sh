@@ -188,8 +188,8 @@ set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24
 #----------------------------------------------------------
 set service dhcp-server shared-network-name NET_NSW01_VMNET option domain-name 'vmnet.nsw01.sigaint.au'
 set service dhcp-server shared-network-name NET_NSW01_VMNET option name-server '10.120.21.1'
-set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 option default-router '10.120.21.1'
-set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 range 0 start '10.120.21.100'
-set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 range 0 stop '10.120.21.200'
-set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.20.0/24 subnet-id '21'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.21.0/24 option default-router '10.120.21.1'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.21.0/24 range 0 start '10.120.21.100'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.21.0/24 range 0 stop '10.120.21.200'
+set service dhcp-server shared-network-name NET_NSW01_VMNET subnet 10.120.21.0/24 subnet-id '21'
 
