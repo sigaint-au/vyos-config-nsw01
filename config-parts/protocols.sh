@@ -1,4 +1,17 @@
 #/bin/vbash
 
-#set protocols static table 10 route 0.0.0.0/0 interface wg600
-#set protocols static table 10 route6 ::/0 interface wg600
+
+
+
+
+## BGP Configuration
+# The following is for MetalLB OpenShift
+#
+set protocols bgp neighbor 10.120.14.11 remote-as '65000'
+set protocols bgp neighbor 10.120.14.12 remote-as '65000'
+set protocols bgp neighbor 10.120.14.13 remote-as '65000'
+set protocols bgp neighbor 10.120.14.14 remote-as '65000'
+set protocols bgp neighbor 10.120.14.15 remote-as '65000'
+set protocols bgp neighbor 10.120.14.16 remote-as '65000'
+set protocols bgp parameters router-id '10.120.14.1'
+set protocols bgp system-as '65000'

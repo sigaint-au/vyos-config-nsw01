@@ -149,7 +149,7 @@ set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.
 set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.0/24 static-mapping cam-65-4b mac '9c:8e:cd:2d:65:4b'
 
 #----------------------------------------------------------
-# Name:     NET_NSW01_WIFI
+# Name:     NET_NSW01_CORP
 # Network:  10.120.13.1
 # VLAN:     10
 # Domain:   wifi.nsw01.sigaint.au
@@ -159,7 +159,7 @@ set service dhcp-server shared-network-name NET_NSW01_SECURITY subnet 10.120.12.
 # We set the nameservers here directly to avoid having the router forward
 # the dns traffic leaking it over eth0.
 #
-set service dhcp-server shared-network-name NET_NSW01_WIFI option domain-name 'wifi.nsw01.sigaint.au'
+set service dhcp-server shared-network-name NET_NSW01_WIFI option domain-name 'corp.nsw01.sigaint.au'
 set service dhcp-server shared-network-name NET_NSW01_WIFI option name-server '45.90.28.189'
 set service dhcp-server shared-network-name NET_NSW01_WIFI option name-server '45.90.30.189'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 option default-router '10.120.13.1'

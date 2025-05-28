@@ -13,6 +13,7 @@ set firewall group port-group OCP_PORTS port '6443'
 set firewall group port-group LOCAL_SERVICES port '3128'
 set firewall group port-group LOCAL_SERVICES port '123'
 set firewall group port-group LOCAL_SERVICES port '53'
+set firewall group port-group LOCAL_SERVICES port '179' # BGP
 
 # Ports for IPA Server
 set firewall group port-group IPA_PORTS port '80'

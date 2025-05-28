@@ -178,7 +178,7 @@ set firewall ipv6 name LOCAL-DMZ-6 rule 110 action 'accept'
 
 
 # DMZ -> LOCAL
-set firewall ipv6 name DMZ-LOCAL-6 default-action 'reject'
+set firewall ipv6 name DMZ-LOCAL-6 default-action 'accept'
 set firewall ipv6 name DMZ-LOCAL-6 default-log
 set firewall ipv6 name DMZ-LOCAL-6 description 'DMZ to LOCAL IPv6'
 set firewall ipv6 name DMZ-LOCAL-6 rule 100 action 'accept'
