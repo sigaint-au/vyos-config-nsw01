@@ -47,7 +47,7 @@ set firewall ipv4 name LOCAL-ADMIN rule 100 action 'accept'
 set firewall ipv4 name LOCAL-ADMIN rule 100 state 'established'
 set firewall ipv4 name LOCAL-ADMIN rule 100 state 'related'
 set firewall ipv4 name LOCAL-ADMIN rule 110 action 'reject'
-set firewall ipv4 na
+set firewall ipv4 name LOCAL-ADMIN rule 110 state 'invalid'
 set firewall ipv4 name LOCAL-ADMIN rule 120 description 'Accept traffic to local services'
 set firewall ipv4 name LOCAL-ADMIN rule 120 destination group port-group 'LOCAL_SERVICES'
 set firewall ipv4 name LOCAL-ADMIN rule 120 protocol 'tcp_udp'

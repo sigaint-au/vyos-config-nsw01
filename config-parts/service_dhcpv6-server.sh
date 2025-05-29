@@ -10,7 +10,7 @@ set service dhcpv6-server shared-network-name NET_NSW01_DMZ_6 subnet 2404:e80:4b
 set service dhcpv6-server shared-network-name NET_NSW01_DMZ_6 interface br0.20
 
 # WIFI
-set service dhcpv6-server shared-network-name NET_NSW01_WIFI_6 option domain-search 'wifi.nsw01.sigaint.au'
+set service dhcpv6-server shared-network-name NET_NSW01_WIFI_6 option domain-search 'corp.nsw01.sigaint.au'
 set service dhcpv6-server shared-network-name NET_NSW01_WIFI_6 subnet 2404:e80:4b6f:0::/64 subnet-id '13'
 set service dhcpv6-server shared-network-name NET_NSW01_WIFI_6 interface br0.13
 
