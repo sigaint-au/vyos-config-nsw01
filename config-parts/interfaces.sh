@@ -57,6 +57,13 @@ set interfaces ethernet eth0 dhcpv6-options pd 0 length '48'
 set interfaces ethernet eth0 dhcpv6-options rapid-commit
 set interfaces ethernet eth0 ipv6 address autoconf
 
+# Proxy arp for Metallb
+set interfaces bridge br0 vif 13 ip enable-proxy-arp
+set interfaces bridge br0 vif 14 ip enable-proxy-arp
+set interfaces bridge br0 vif 20 ip enable-proxy-arp
+set interfaces bridge br0 vif 21 ip enable-proxy-arp
+
+
 # Configure bridge interface and VLANs.
 set interfaces bridge br0 enable-vlan
 set interfaces bridge br0 member interface eth1 allowed-vlan '10-50'

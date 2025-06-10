@@ -8,10 +8,19 @@ set firewall group address-group DNS_SERVERS address '45.90.30.189'
 set firewall group ipv6-address-group DNS_SERVERS_6 address '2a07:a8c0::2a:b561'
 set firewall group ipv6-address-group DNS_SERVERS_6 address '2a07:a8c1::2a:b561'
 
+###
+## Metal LB Address Ranges from each network
+## by default .200-250 are reserved for MetalLB
+##
+set firewall group address-group METALLB_VIPS address 10.120.21.200-10.120.21.250
+set firewall group address-group METALLB_VIPS address 10.120.20.200-10.120.20.250
+set firewall group address-group METALLB_VIPS address 10.120.13.200-10.120.13.250
+
+
+
 ####
 ## WireGuard Peers
 ##
-#
 set firewall group address-group WG_PEERS address '217.138.216.98'
 set firewall group address-group WG_PEERS address '159.196.99.195'
 

@@ -179,6 +179,19 @@ set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping plex ip-address '10.120.13.10'
 set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping plex mac '1C:69:7A:06:4F:6D'
 
+# Thinlinc Master
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping tl-vdi-master-1 ip-address '10.120.13.20'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping tl-vdi-master-1 mac '02:a8:d6:00:00:aa'
+
+# Thinlinc Agent 1
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping tl-vdi-agent-corp-1 ip-address '10.120.13.21'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping tl-vdi-agent-corp-1 mac '02:a8:d6:00:00:bb'
+
+# Thinlinc Agent 2
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping tl-vdi-agent-corp-2 ip-address '10.120.13.22'
+set service dhcp-server shared-network-name NET_NSW01_WIFI subnet 10.120.13.0/24 static-mapping tl-vdi-agent-corp-2 mac '02:a8:d6:00:00:cc'
+
+
 #----------------------------------------------------------
 # Name:     NET_NSW01_VMNET
 # Network:  10.120.21.1

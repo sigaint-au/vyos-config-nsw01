@@ -13,6 +13,10 @@ set firewall ipv4 name WAN-LOCAL rule 110 action 'accept'
 set firewall ipv4 name WAN-LOCAL rule 110 description 'Wireguard VPN'
 set firewall ipv4 name WAN-LOCAL rule 110 destination port '51820'
 set firewall ipv4 name WAN-LOCAL rule 110 protocol 'udp'
+#set firewall ipv4 name WAN-LOCAL rule 120 action 'accept'
+#set firewall ipv4 name WAN-LOCAL rule 120 description 'SSH'
+#set firewall ipv4 name WAN-LOCAL rule 120 destination port '22'
+#set firewall ipv4 name WAN-LOCAL rule 120 protocol 'tcp'
 
 # WAN -> WIFI
 set firewall ipv4 name WAN-WIFI default-action 'reject'
@@ -199,6 +203,9 @@ set firewall ipv4 name WIFI-HOSTING rule 130 protocol 'tcp_udp'
 set firewall ipv4 name WIFI-HOSTING rule 140 action 'accept'
 set firewall ipv4 name WIFI-HOSTING rule 140 description 'Accept traffic to satellite.hosting.sigaint.au'
 set firewall ipv4 name WIFI-HOSTING rule 140 destination address "10.120.14.10"
+set firewall ipv4 name WIFI-HOSTING rule 150 action 'accept'
+set firewall ipv4 name WIFI-HOSTING rule 150 description 'Accept MetalLB BGP traffic'
+set firewall ipv4 name WIFI-HOSTING rule 150 destination group address-group METALLB_VIPS
 
 # HOSTING -> WIFI
 set firewall ipv4 name HOSTING-WIFI default-action 'reject'
