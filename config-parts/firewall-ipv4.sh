@@ -301,3 +301,14 @@ set firewall ipv4 name DMZ-WIFI rule 110 state 'invalid'
 set firewall ipv4 name WIFI-DMZ default-action 'reject'
 set firewall ipv4 name WIFI-DMZ default-log
 set firewall ipv4 name WIFI-DMZ rule 100 action 'accept'
+
+
+# VPN -> WIFI
+set firewall ipv4 name VPN-WIFI default-action 'reject'
+set firewall ipv4 name VPN-WIFI default-log
+set firewall ipv4 name VPN-WIFI rule 100 action 'accept'
+
+# VPN -> WIFI
+set firewall ipv4 name WIFI-VPN default-action 'reject'
+set firewall ipv4 name WIFI-VPN default-log
+set firewall ipv4 name WIFI-VPN rule 100 action 'accept'

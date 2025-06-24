@@ -231,3 +231,11 @@ set firewall ipv6 name WIFI-DMZ-6 default-action 'reject'
 set firewall ipv6 name WIFI-DMZ-6 default-log
 set firewall ipv6 name WIFI-DMZ-6 description 'WIFI to DMZ IPv6'
 set firewall ipv6 name WIFI-DMZ-6 rule 100 action 'accept'
+
+# VPN -> WIFI
+set firewall ipv6 name VPN-WIFI-6 default-action 'drop'
+set firewall ipv6 name VPN-WIFI-6 rule 100 action 'accept'
+
+# WIFI -> VPN
+set firewall ipv6 name WIFI-VPN-6 default-action 'drop'
+set firewall ipv6 name WIFI-VPN-6 rule 100 action 'accept'
