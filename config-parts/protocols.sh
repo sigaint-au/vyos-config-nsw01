@@ -26,3 +26,5 @@ set protocols bgp neighbor 10.120.14.15 remote-as '65000'
 set protocols bgp neighbor 10.120.14.16 address-family ipv4-unicast
 set protocols bgp neighbor 10.120.14.16 remote-as '65000'
 
+## Default Gateway
+set protocols static route 0.0.0.0/0 interface eth0
