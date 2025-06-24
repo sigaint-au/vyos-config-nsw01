@@ -35,6 +35,8 @@ set firewall zone LOCAL from VMNET firewall ipv6-name 'VMNET-LOCAL-6'
 set firewall zone LOCAL from DMZ firewall name 'DMZ-LOCAL'
 set firewall zone LOCAL from DMZ firewall ipv6-name 'DMZ-LOCAL-6'
 set firewall zone LOCAL from ADMIN firewall name 'ADMIN-LOCAL'
+set firewall zone LOCAL from VPN firewall name 'VPN-LOCAL'
+set firewall zone LOCAL from VPN firewall ipv6-name 'VPN-LOCAL-6'
 set firewall zone LOCAL local-zone
 
 set firewall zone PROTECTED default-action 'reject'
@@ -108,4 +110,6 @@ set firewall zone VPN default-log
 set firewall zone VPN description 'VPN Site-to-Site'
 set firewall zone VPN from WIFI firewall name 'WIFI-VPN'
 set firewall zone VPN from WIFI firewall ipv6-name 'WIFI-VPN-6'
+set firewall zone VPN from LOCAL firewall name 'LOCAL-VPN'
+set firewall zone VPN from LOCAL firewall ipv6-name 'LOCAL-VPN-6'
 set firewall zone VPN member interface 'wg600'

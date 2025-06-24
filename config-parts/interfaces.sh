@@ -91,6 +91,7 @@ set interfaces wireguard wg600 description 'Newcastle VPN Tunnel'
 set interfaces wireguard wg600 port 51820
 set interfaces wireguard wg600 peer NSW02_WG_1 address '58.178.25.160'
 set interfaces wireguard wg600 peer NSW02_WG_1 allowed-ips '10.130.0.0/16'
+set interfaces wireguard wg600 peer NSW02_WG_1 allowed-ips '172.16.8.2/32'
 set interfaces wireguard wg600 peer NSW02_WG_1 persistent-keepalive '25'
 set interfaces wireguard wg600 peer NSW02_WG_1 port '51820'
 set interfaces wireguard wg600 peer NSW02_WG_1 preshared-key "$secret_wireguard_wg600_psk"
