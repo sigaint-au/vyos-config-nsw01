@@ -28,3 +28,6 @@ set protocols bgp neighbor 10.120.14.16 remote-as '65000'
 
 ## Default Gateway
 set protocols static route 0.0.0.0/0 interface eth0
+
+## Wireguard
+set protocols static route 10.130.0.0/16 interface wg600

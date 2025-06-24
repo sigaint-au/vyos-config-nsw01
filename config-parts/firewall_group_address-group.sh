@@ -21,8 +21,8 @@ set firewall group address-group METALLB_VIPS address 10.120.13.200-10.120.13.25
 ####
 ## WireGuard Peers
 ##
-set firewall group address-group WG_PEERS address '217.138.216.98'
-set firewall group address-group WG_PEERS address '159.196.99.195'
+set firewall group address-group WG_PEERS address '58.178.25.160' # nsw02
+set firewall group address-group WG_PEERS address '103.214.222.109' # nsw01
 
 set firewall group address-group OCP_VIPS address '10.120.14.5'
 set firewall group address-group OCP_VIPS address '10.120.14.6'
