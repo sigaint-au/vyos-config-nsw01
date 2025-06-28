@@ -23,6 +23,13 @@ set nat destination rule 15 protocol "tcp_udp"
 set nat destination rule 15 translation address "10.120.20.5"
 set nat destination rule 15 translation port "443"
 
+set nat destination rule 20 description "Plex - "
+set nat destination rule 20 destination port "32400"
+set nat destination rule 20 inbound-interface name "eth0"
+set nat destination rule 20 protocol "tcp"
+set nat destination rule 20 translation address "10.120.13.10"
+set nat destination rule 20 translation port "32400"
+
 # Force port 53 traffic to use local dns
 #set nat destination rule 102 description 'Force DNS for Wifi'
 #set nat destination rule 102 destination address '!10.120.13.1'

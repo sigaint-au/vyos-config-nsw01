@@ -13,6 +13,12 @@ set firewall ipv4 name WAN-LOCAL rule 110 action 'accept'
 set firewall ipv4 name WAN-LOCAL rule 110 description 'Wireguard VPN'
 set firewall ipv4 name WAN-LOCAL rule 110 destination port '51820'
 set firewall ipv4 name WAN-LOCAL rule 110 protocol 'udp'
+
+set firewall ipv4 name WAN-LOCAL rule 120 action 'accept'
+set firewall ipv4 name WAN-LOCAL rule 120 description 'Plex'
+set firewall ipv4 name WAN-LOCAL rule 120 destination port '32400'
+set firewall ipv4 name WAN-LOCAL rule 120 protocol 'tcp'
+
 #set firewall ipv4 name WAN-LOCAL rule 120 action 'accept'
 #set firewall ipv4 name WAN-LOCAL rule 120 description 'SSH'
 #set firewall ipv4 name WAN-LOCAL rule 120 destination port '22'
