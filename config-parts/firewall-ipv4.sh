@@ -308,8 +308,13 @@ set firewall ipv4 name DMZ-HOSTING rule 110 destination group port-group 'OCP_PO
 set firewall ipv4 name DMZ-HOSTING rule 110 destination group address-group 'OCP_VIPS'
 set firewall ipv4 name DMZ-HOSTING rule 110 protocol 'tcp_udp'
 
-set firewall ipv4 name DMZ-HOSTING rule 120 action 'reject'
-set firewall ipv4 name DMZ-HOSTING rule 120 state 'invalid'
+# MetalLB LB
+set firewall ipv4 name DMZ-HOSTING rule 120 action 'accept'
+set firewall ipv4 name DMZ-HOSTING rule 120 description 'Accept MetalLB BGP traffic'
+set firewall ipv4 name DMZ-HOSTING rule 120 destination group address-group METALLB_VIPS
+
+set firewall ipv4 name DMZ-HOSTING rule 130 action 'reject'
+set firewall ipv4 name DMZ-HOSTING rule 130 state 'invalid'
 
 # HOSTING -> DMZ
 set firewall ipv4 name HOSTING-DMZ default-action 'reject'
