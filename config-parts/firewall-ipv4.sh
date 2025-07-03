@@ -294,6 +294,28 @@ set firewall ipv4 name VMNET-DMZ default-action 'reject'
 set firewall ipv4 name VMNET-DMZ default-log
 set firewall ipv4 name VMNET-DMZ rule 100 action 'accept'
 
+# DMZ -> HOSTING
+set firewall ipv4 name DMZ-HOSTING default-action 'reject'
+set firewall ipv4 name DMZ-HOSTING default-log
+set firewall ipv4 name DMZ-HOSTING rule 100 action 'accept'
+set firewall ipv4 name DMZ-HOSTING rule 100 state 'established'
+set firewall ipv4 name DMZ-HOSTING rule 100 state 'related'
+
+# Allow OCP VIPS.
+set firewall ipv4 name DMZ-HOSTING rule 110 action 'accept'
+set firewall ipv4 name DMZ-HOSTING rule 110 description 'Accept traffic to OpenShift services'
+set firewall ipv4 name DMZ-HOSTING rule 110 destination group port-group 'OCP_PORTS'
+set firewall ipv4 name DMZ-HOSTING rule 110 destination group address-group 'OCP_VIPS'
+set firewall ipv4 name DMZ-HOSTING rule 110 protocol 'tcp_udp'
+
+set firewall ipv4 name DMZ-HOSTING rule 120 action 'reject'
+set firewall ipv4 name DMZ-HOSTING rule 120 state 'invalid'
+
+# HOSTING -> DMZ
+set firewall ipv4 name HOSTING-DMZ default-action 'reject'
+set firewall ipv4 name HOSTING-DMZ default-log
+set firewall ipv4 name HOSTING-DMZ rule 100 action 'accept'
+
 # DMZ -> WIFI
 set firewall ipv4 name DMZ-WIFI default-action 'reject'
 set firewall ipv4 name DMZ-WIFI default-log

@@ -214,6 +214,43 @@ set firewall ipv6 name VMNET-DMZ-6 default-log
 set firewall ipv6 name VMNET-DMZ-6 description 'VMNET to DMZ IPv6'
 set firewall ipv6 name VMNET-DMZ-6 rule 100 action 'accept'
 
+
+# DMZ -> HOSTING
+set firewall ipv6 name DMZ-HOSTING-6 default-action 'drop'
+set firewall ipv6 name DMZ-HOSTING-6 default-log
+set firewall ipv6 name DMZ-HOSTING-6 description 'DMZ to HOSTING IPv6'
+set firewall ipv6 name DMZ-HOSTING-6 rule 110 action 'accept'
+set firewall ipv6 name DMZ-HOSTING-6 rule 110 state 'established'
+set firewall ipv6 name DMZ-HOSTING-6 rule 110 state 'related'
+set firewall ipv6 name DMZ-HOSTING-6 rule 120 action 'drop'
+set firewall ipv6 name DMZ-HOSTING-6 rule 120 state 'invalid'
+set firewall ipv6 name DMZ-HOSTING-6 rule 130 action 'accept'
+set firewall ipv6 name DMZ-HOSTING-6 rule 130 protocol 'icmpv6'
+
+# HOSTING -> DMZ
+set firewall ipv6 name HOSTING-DMZ-6 default-action 'reject'
+set firewall ipv6 name HOSTING-DMZ-6 default-log
+set firewall ipv6 name HOSTING-DMZ-6 description 'HOSTING to DMZ IPv6'
+set firewall ipv6 name HOSTING-DMZ-6 rule 100 action 'accept'
+
+# DMZ -> VMNET
+set firewall ipv6 name DMZ-VMNET-6 default-action 'drop'
+set firewall ipv6 name DMZ-VMNET-6 default-log
+set firewall ipv6 name DMZ-VMNET-6 description 'LOCAL to VMNET IPv6'
+set firewall ipv6 name DMZ-VMNET-6 rule 110 action 'accept'
+set firewall ipv6 name DMZ-VMNET-6 rule 110 state 'established'
+set firewall ipv6 name DMZ-VMNET-6 rule 110 state 'related'
+set firewall ipv6 name DMZ-VMNET-6 rule 120 action 'drop'
+set firewall ipv6 name DMZ-VMNET-6 rule 120 state 'invalid'
+set firewall ipv6 name DMZ-VMNET-6 rule 130 action 'accept'
+set firewall ipv6 name DMZ-VMNET-6 rule 130 protocol 'icmpv6'
+
+# VMNET -> DMZ
+set firewall ipv6 name VMNET-DMZ-6 default-action 'reject'
+set firewall ipv6 name VMNET-DMZ-6 default-log
+set firewall ipv6 name VMNET-DMZ-6 description 'VMNET to DMZ IPv6'
+set firewall ipv6 name VMNET-DMZ-6 rule 100 action 'accept'
+
 # DMZ -> WIFI
 set firewall ipv6 name DMZ-WIFI-6 default-action 'drop'
 set firewall ipv6 name DMZ-WIFI-6 default-log
