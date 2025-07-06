@@ -39,11 +39,10 @@ set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping supermicro-c6c0 ip-address '10.120.10.30'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping supermicro-c6c0 mac '00:25:90:f6:c6:c0'
 
-# Forcepoint
-set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-53f46v2 ip-address '10.120.10.49'
-set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-53f46v2 mac '6c:2b:59:7d:3b:c3'
 
 # Nodes iDRAC and XClarity
+set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-fmm0wv2 ip-address '10.120.10.49'
+set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-fmm0wv2 mac '6c:2b:59:86:e6:9b'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-6BFVY42 ip-address '10.120.10.50'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-6BFVY42 mac '74:e6:e2:fa:70:06'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-8505qm2 ip-address '10.120.10.51'
