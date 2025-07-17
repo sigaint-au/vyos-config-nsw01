@@ -108,6 +108,21 @@ set firewall ipv4 name WIFI-WAN default-log
 set firewall ipv4 name WIFI-WAN rule 100 action 'accept'
 set firewall ipv4 name WIFI-WAN rule 100 description 'Allow all traffic to WAN'
 
+# ADMIN -> WAN
+set firewall ipv4 name ADMIN-WAN default-action 'reject'
+set firewall ipv4 name ADMIN-WAN default-log
+set firewall ipv4 name ADMIN-WAN rule 100 action 'accept'
+set firewall ipv4 name ADMIN-WAN rule 100 description 'Allow all traffic to WAN'
+
+# WAN -> ADMIN
+set firewall ipv4 name WAN-ADMIN default-action 'reject'
+set firewall ipv4 name WAN-ADMIN default-log
+set firewall ipv4 name WAN-ADMIN rule 100 action 'accept'
+set firewall ipv4 name WAN-ADMIN rule 100 state 'established'
+set firewall ipv4 name WAN-ADMIN rule 100 state 'related'
+set firewall ipv4 name WAN-ADMIN rule 110 action 'reject'
+set firewall ipv4 name WAN-ADMIN rule 110 state 'invalid'
+
 # HOSTING -> WAN
 set firewall ipv4 name HOSTING-WAN default-action 'reject'
 set firewall ipv4 name HOSTING-WAN default-log

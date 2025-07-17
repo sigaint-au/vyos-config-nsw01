@@ -1,11 +1,15 @@
 #!/bin/vbash
 
+## TODO: mhahl
+## ADD IPV6
+
 set firewall zone ADMIN default-action 'reject'
 set firewall zone ADMIN default-log
 set firewall zone ADMIN description 'Device administration network'
 set firewall zone ADMIN from PROTECTED firewall name 'PROTECTED-ADMIN'
 set firewall zone ADMIN from LOCAL firewall name 'LOCAL-ADMIN'
 set firewall zone ADMIN from WIFI firewall name 'WIFI-ADMIN'
+set firewall zone ADMIN from WAN firewall name 'WAN-ADMIN'
 set firewall zone ADMIN member interface 'br0.10'
 
 set firewall zone DMZ default-action 'reject'
@@ -71,6 +75,7 @@ set firewall zone WAN from VMNET firewall name 'VMNET-WAN'
 set firewall zone WAN from VMNET firewall ipv6-name 'VMNET-WAN-6'
 set firewall zone WAN from DMZ firewall name 'DMZ-WAN'
 set firewall zone WAN from DMZ firewall ipv6-name 'DMZ-WAN-6'
+set firewall zone WAN from ADMIN firewall name 'ADMIN-WAN'
 set firewall zone WAN member interface 'eth0'
 
 set firewall zone HOSTING default-action 'reject'

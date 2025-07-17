@@ -16,8 +16,6 @@ set firewall group address-group METALLB_VIPS address 10.120.21.200-10.120.21.25
 set firewall group address-group METALLB_VIPS address 10.120.20.200-10.120.20.250
 set firewall group address-group METALLB_VIPS address 10.120.13.200-10.120.13.250
 
-
-
 ####
 ## WireGuard Peers
 ##

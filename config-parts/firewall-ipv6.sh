@@ -158,6 +158,22 @@ set firewall ipv6 name WAN-VMNET-6 rule 110 state 'related'
 set firewall ipv6 name WAN-VMNET-6 rule 120 action 'drop'
 set firewall ipv6 name WAN-VMNET-6 rule 120 state 'invalid'
 
+# ADMIN -> WAN
+set firewall ipv6 name ADMIN-WAN-6 default-action 'reject'
+set firewall ipv6 name ADMIN-WAN-6 default-log
+set firewall ipv6 name ADMIN-WAN-6 description 'ADMIN to WAN IPv6'
+set firewall ipv6 name ADMIN-WAN-6 rule 100 action 'accept'
+
+# WAN -> ADMIN
+set firewall ipv6 name WAN-ADMIN-6 default-action 'drop'
+set firewall ipv6 name WAN-ADMIN-6 default-log
+set firewall ipv6 name WAN-ADMIN-6 description 'WAN to ADMIN IPv6'
+set firewall ipv6 name WAN-ADMIN-6 rule 110 action 'accept'
+set firewall ipv6 name WAN-ADMIN-6 rule 110 state 'established'
+set firewall ipv6 name WAN-ADMIN-6 rule 110 state 'related'
+set firewall ipv6 name WAN-ADMIN-6 rule 120 action 'drop'
+set firewall ipv6 name WAN-ADMIN-6 rule 120 state 'invalid'
+
 # DMZ -> WAN
 set firewall ipv6 name DMZ-WAN-6 default-action 'reject'
 set firewall ipv6 name DMZ-WAN-6 default-log
