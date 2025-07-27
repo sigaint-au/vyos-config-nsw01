@@ -9,7 +9,7 @@ set nat source rule 50 translation address 'masquerade'
 #set nat source rule 100 outbound-interface name 'wg600'
 #set nat source rule 100 translation address 'masquerade'
 
-set nat destination rule 10 description "DMZ LB - 443"
+set nat destination rule 10 description "DMZ LB - 80"
 set nat destination rule 10 destination port "80"
 set nat destination rule 10 inbound-interface name "eth0"
 set nat destination rule 10 protocol "tcp_udp"

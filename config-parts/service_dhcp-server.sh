@@ -70,6 +70,14 @@ set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 
 set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 range 0 stop '10.120.20.200'
 set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 subnet-id '20'
 
+# DMZ Load Balancer 1
+set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 static-mapping dmz-ingress-lb-1 ip-address '10.120.13.6'
+set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 static-mapping dmz-ingress-lb-1 mac '00:16:3e:86:7e:06'
+
+# DMZ Load Balancer 2
+set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 static-mapping dmz-ingress-lb-2 ip-address '10.120.13.7'
+set service dhcp-server shared-network-name NET_NSW01_DMZ subnet 10.120.20.0/24 static-mapping dmz-ingress-lb-2 mac '00:16:3e:86:7e:07'
+
 #----------------------------------------------------------
 # Name:     NET_NSW01_PROTECTED
 # Network:  10.120.11.1
