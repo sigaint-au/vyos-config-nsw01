@@ -109,8 +109,8 @@ set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 subnet-id '14'
 
 
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-infra-01 ip-address '10.120.14.10'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-infra-01 mac 'b0:26:28:1d:78:4f'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-01 ip-address '10.120.14.10'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-01 mac '6c:2b:59:86:e6:99'
 
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-01 ip-address '10.120.14.11'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-01 mac '44:a8:42:0a:5e:e7'
