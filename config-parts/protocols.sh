@@ -1,6 +1,5 @@
 #/bin/vbash
 
-
 ## BGP Configuration
 # The following is for MetalLB OpenShift
 #

@@ -19,7 +19,10 @@ set firewall ipv4 name WAN-LOCAL rule 110 protocol 'udp'
 #set firewall ipv4 name WAN-LOCAL rule 120 destination port '22'
 #set firewall ipv4 name WAN-LOCAL rule 120 protocol 'tcp'
 
-# WAN -> WIFI
+## -------------------------
+## WAN -> WIFI
+## -------------------------
+
 set firewall ipv4 name WAN-WIFI default-action 'reject'
 set firewall ipv4 name WAN-WIFI default-log
 set firewall ipv4 name WAN-WIFI rule 100 action 'accept'
@@ -33,7 +36,9 @@ set firewall ipv4 name WAN-WIFI rule 120 description 'NAT: Plex'
 set firewall ipv4 name WAN-WIFI rule 120 destination port '32400'
 set firewall ipv4 name WAN-WIFI rule 120 protocol 'tcp'
 
-# ADMIN -> PROTECTED
+## -------------------------
+## ADMIN -> PROTECTED
+## -------------------------
 set firewall ipv4 name ADMIN-PROTECTED default-action 'reject'
 set firewall ipv4 name ADMIN-PROTECTED default-log
 set firewall ipv4 name ADMIN-PROTECTED rule 100 action 'accept'
@@ -42,7 +47,9 @@ set firewall ipv4 name ADMIN-PROTECTED rule 100 state 'related'
 set firewall ipv4 name ADMIN-PROTECTED rule 110 action 'reject'
 set firewall ipv4 name ADMIN-PROTECTED rule 110 state 'invalid'
 
-# ADMIN -> LOCAL
+## -------------------------
+## ADMIN -> LOCAL
+## -------------------------
 set firewall ipv4 name ADMIN-LOCAL default-action 'reject'
 set firewall ipv4 name ADMIN-LOCAL default-log
 set firewall ipv4 name ADMIN-LOCAL rule 110 action 'accept'
@@ -50,7 +57,9 @@ set firewall ipv4 name ADMIN-LOCAL rule 110 description 'SSH'
 set firewall ipv4 name ADMIN-LOCAL rule 110 destination port '22'
 set firewall ipv4 name ADMIN-LOCAL rule 110 protocol 'tcp'
 
-# LOCAL -> ADMIN
+## -------------------------
+## LOCAL -> ADMIN
+## -------------------------
 set firewall ipv4 name LOCAL-ADMIN default-action 'reject'
 set firewall ipv4 name LOCAL-ADMIN  default-log
 set firewall ipv4 name LOCAL-ADMIN rule 100 action 'accept'
@@ -63,15 +72,17 @@ set firewall ipv4 name LOCAL-ADMIN rule 120 destination group port-group 'LOCAL_
 set firewall ipv4 name LOCAL-ADMIN rule 120 protocol 'tcp_udp'
 set firewall ipv4 name LOCAL-ADMIN rule 120 action 'accept'
 
-##
-# LOCAL -> WAN
-#
+## -------------------------
+## LOCAL -> WAN
+## -------------------------
 set firewall ipv4 name LOCAL-WAN default-action 'accept'
 set firewall ipv4 name LOCAL-WAN default-log
 set firewall ipv4 name LOCAL-WAN rule 100 action 'accept'
 set firewall ipv4 name LOCAL-WAN rule 100 description 'Allow access to internet'
 
-# PROTECTED -> ADMIN
+## -------------------------
+## PROTECTED -> ADMIN
+## -------------------------
 set firewall ipv4 name PROTECTED-ADMIN default-action 'reject'
 set firewall ipv4 name PROTECTED-ADMIN default-log
 set firewall ipv4 name PROTECTED-ADMIN rule 100 action 'accept'
@@ -88,7 +99,9 @@ set firewall ipv4 name PROTECTED-ADMIN rule 130 description 'Device management a
 set firewall ipv4 name PROTECTED-ADMIN rule 130 destination group address-group 'MANAGEMENT'
 set firewall ipv4 name PROTECTED-ADMIN rule 130 protocol 'tcp_udp'
 
-# WIFI -> SECURITY
+## -------------------------
+## WIFI -> SECURITY
+## -------------------------
 set firewall ipv4 name WIFI-SECURITY default-action 'reject'
 set firewall ipv4 name WIFI-SECURITY default-log
 set firewall ipv4 name WIFI-SECURITY rule 100 action 'accept'
@@ -102,19 +115,25 @@ set firewall ipv4 name WIFI-SECURITY rule 120 destination address '10.120.12.10'
 set firewall ipv4 name WIFI-SECURITY rule 120 destination port '443,80'
 set firewall ipv4 name WIFI-SECURITY rule 120 protocol 'tcp'
 
-# WIFI -> WAN
+## -------------------------
+## WIFI -> WAN
+## -------------------------
 set firewall ipv4 name WIFI-WAN default-action 'reject'
 set firewall ipv4 name WIFI-WAN default-log
 set firewall ipv4 name WIFI-WAN rule 100 action 'accept'
 set firewall ipv4 name WIFI-WAN rule 100 description 'Allow all traffic to WAN'
 
-# ADMIN -> WAN
+## -------------------------
+## ADMIN -> WAN
+## -------------------------
 set firewall ipv4 name ADMIN-WAN default-action 'reject'
 set firewall ipv4 name ADMIN-WAN default-log
 set firewall ipv4 name ADMIN-WAN rule 100 action 'accept'
 set firewall ipv4 name ADMIN-WAN rule 100 description 'Allow all traffic to WAN'
 
-# WAN -> ADMIN
+## -------------------------
+## WAN -> ADMIN
+## -------------------------
 set firewall ipv4 name WAN-ADMIN default-action 'reject'
 set firewall ipv4 name WAN-ADMIN default-log
 set firewall ipv4 name WAN-ADMIN rule 100 action 'accept'
@@ -123,13 +142,17 @@ set firewall ipv4 name WAN-ADMIN rule 100 state 'related'
 set firewall ipv4 name WAN-ADMIN rule 110 action 'reject'
 set firewall ipv4 name WAN-ADMIN rule 110 state 'invalid'
 
-# HOSTING -> WAN
+## -------------------------
+## HOSTING -> WAN
+## -------------------------
 set firewall ipv4 name HOSTING-WAN default-action 'reject'
 set firewall ipv4 name HOSTING-WAN default-log
 set firewall ipv4 name HOSTING-WAN rule 100 action 'accept'
 set firewall ipv4 name HOSTING-WAN rule 100 description 'Accept all traffic to WAN'
 
-# WIFI -> LOCAL
+## -------------------------
+## WIFI -> LOCAL
+## -------------------------
 set firewall ipv4 name WIFI-LOCAL default-action 'reject'
 set firewall ipv4 name WIFI-LOCAL default-log
 set firewall ipv4 name WIFI-LOCAL rule 100 action 'accept'
@@ -146,7 +169,9 @@ set firewall ipv4 name WIFI-LOCAL rule 130 description 'SSH'
 set firewall ipv4 name WIFI-LOCAL rule 130 destination port '22'
 set firewall ipv4 name WIFI-LOCAL rule 130 protocol 'tcp'
 
-# LOCAL -> WIFI
+## -------------------------
+## LOCAL -> WIFI
+## -------------------------
 set firewall ipv4 name LOCAL-WIFI default-action 'reject'
 set firewall ipv4 name LOCAL-WIFI default-log
 set firewall ipv4 name LOCAL-WIFI rule 100 action 'accept'
@@ -155,13 +180,19 @@ set firewall ipv4 name LOCAL-WIFI rule 100 state 'related'
 set firewall ipv4 name LOCAL-WIFI rule 110 action 'reject'
 set firewall ipv4 name LOCAL-WIFI rule 110 state 'invalid'
 
-# WIFI-ADMIN (XXXX)
+## -------------------------
+## WIFI-ADMIN
+## TODO(mhahl): Remove this and move to Secure zone jumpbox.
+## -------------------------
 set firewall ipv4 name WIFI-ADMIN default-action 'reject'
 set firewall ipv4 name WIFI-ADMIN default-log
 set firewall ipv4 name WIFI-ADMIN rule 100 action 'accept'
 set firewall ipv4 name WIFI-ADMIN rule 100 description 'Accept All Traffic'
 
-# ADMIN-WIFI (XXXX)
+## -------------------------
+## ADMIN-WIFI (XXXX)
+## TODO(mhahl): Remove this and move to Secure zone jumpbox.
+## -------------------------
 set firewall ipv4 name ADMIN-WIFI default-action 'reject'
 set firewall ipv4 name ADMIN-WIFI default-log
 set firewall ipv4 name ADMIN-WIFI rule 100 action 'accept'
@@ -186,8 +217,10 @@ set firewall ipv4 name HOSTING-LOCAL rule 120 action 'accept'
 set firewall ipv4 name HOSTING-LOCAL rule 120 description 'Accept traffic to local services'
 set firewall ipv4 name HOSTING-LOCAL rule 120 destination group port-group 'LOCAL_SERVICES'
 set firewall ipv4 name HOSTING-LOCAL rule 120 protocol 'tcp_udp'
-set firewall ipv4 name HOSTING-LOCAL rule 130 action 'reject'
-set firewall ipv4 name HOSTING-LOCAL rule 130 state 'invalid'
+set firewall ipv4 name HOSTING-LOCAL rule 130 description 'Accept MetalLB BGP traffic'
+set firewall ipv4 name HOSTING-LOCAL rule 130 destination group address-group METALLB_VIPS
+set firewall ipv4 name HOSTING-LOCAL rule 140 action 'reject'
+set firewall ipv4 name HOSTING-LOCAL rule 140 state 'invalid'
 
 # LOCAL -> HOSTING
 set firewall ipv4 name LOCAL-HOSTING default-action 'reject'
@@ -195,12 +228,14 @@ set firewall ipv4 name LOCAL-HOSTING default-log
 set firewall ipv4 name LOCAL-HOSTING rule 100 action 'accept'
 set firewall ipv4 name LOCAL-HOSTING rule 100 state 'established'
 set firewall ipv4 name LOCAL-HOSTING rule 100 state 'related'
-set firewall ipv4 name LOCAL-HOSTING rule 110 action 'reject'
-set firewall ipv4 name LOCAL-HOSTING rule 110 state 'invalid'
-set firewall ipv4 name LOCAL-HOSTING rule 120 description 'Accept traffic to local services'
-set firewall ipv4 name LOCAL-HOSTING rule 120 destination group port-group 'LOCAL_SERVICES'
-set firewall ipv4 name LOCAL-HOSTING rule 120 protocol 'tcp_udp'
-set firewall ipv4 name LOCAL-HOSTING rule 120 action 'accept'
+set firewall ipv4 name LOCAL-HOSTING rule 110 description 'Accept traffic to local services'
+set firewall ipv4 name LOCAL-HOSTING rule 110 destination group port-group 'LOCAL_SERVICES'
+set firewall ipv4 name LOCAL-HOSTING rule 110 protocol 'tcp_udp'
+set firewall ipv4 name LOCAL-HOSTING rule 110 action 'accept'
+set firewall ipv4 name LOCAL-HOSTING rule 120 description 'Accept MetalLB BGP traffic'
+set firewall ipv4 name LOCAL-HOSTING rule 120 destination group address-group METALLB_VIPS
+set firewall ipv4 name LOCAL-HOSTING rule 130 action 'reject'
+set firewall ipv4 name LOCAL-HOSTING rule 130 state 'invalid'
 
 # WIFI -> HOSTING
 set firewall ipv4 name WIFI-HOSTING default-action 'reject'
@@ -212,7 +247,7 @@ set firewall ipv4 name WIFI-HOSTING rule 110 action 'reject'
 set firewall ipv4 name WIFI-HOSTING rule 110 state 'invalid'
 
 set firewall ipv4 name WIFI-HOSTING rule 120 action 'accept'
-set firewall ipv4 name WIFI-HOSTING rule 120 description 'Accept traffic to horizon.sigaint.au'
+set firewall ipv4 name WIFI-HOSTING rule 120 description 'Accept traffic to api.ocp.sigaint.au'
 set firewall ipv4 name WIFI-HOSTING rule 120 destination address "10.120.14.5"
 
 set firewall ipv4 name WIFI-HOSTING rule 130 action 'accept'

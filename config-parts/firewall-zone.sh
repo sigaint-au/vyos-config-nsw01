@@ -1,8 +1,5 @@
 #!/bin/vbash
 
-## TODO: mhahl
-## ADD IPV6
-
 set firewall zone ADMIN default-action 'reject'
 set firewall zone ADMIN default-log
 set firewall zone ADMIN description 'Device administration network'

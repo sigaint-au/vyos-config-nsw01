@@ -5,6 +5,9 @@ set system host-name '$host_system_host_name'
 
 set system time-zone 'Australia/Sydney'
 
+# Syslog
+set system syslog host syslog.v4.dmz.sigaint.au protocol tcp
+
 # System DNS set to NextDNS
 set system name-server '45.90.28.189'
 set system name-server '45.90.30.189'
