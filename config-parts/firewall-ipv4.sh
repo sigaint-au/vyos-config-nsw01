@@ -234,6 +234,8 @@ set firewall ipv4 name LOCAL-HOSTING rule 110 protocol 'tcp_udp'
 set firewall ipv4 name LOCAL-HOSTING rule 110 action 'accept'
 set firewall ipv4 name LOCAL-HOSTING rule 120 description 'Accept MetalLB BGP traffic'
 set firewall ipv4 name LOCAL-HOSTING rule 120 destination group address-group METALLB_VIPS
+set firewall ipv4 name LOCAL-HOSTING rule 120 action 'accept'
+
 set firewall ipv4 name LOCAL-HOSTING rule 130 action 'reject'
 set firewall ipv4 name LOCAL-HOSTING rule 130 state 'invalid'
 
@@ -259,9 +261,10 @@ set firewall ipv4 name WIFI-HOSTING rule 130 protocol 'tcp_udp'
 set firewall ipv4 name WIFI-HOSTING rule 140 action 'accept'
 set firewall ipv4 name WIFI-HOSTING rule 140 description 'Accept traffic to satellite.hosting.sigaint.au'
 set firewall ipv4 name WIFI-HOSTING rule 140 destination address "10.120.14.10"
-set firewall ipv4 name WIFI-HOSTING rule 150 action 'accept'
 set firewall ipv4 name WIFI-HOSTING rule 150 description 'Accept MetalLB BGP traffic'
 set firewall ipv4 name WIFI-HOSTING rule 150 destination group address-group METALLB_VIPS
+set firewall ipv4 name WIFI-HOSTING rule 150 action 'accept'
+
 
 # HOSTING -> WIFI
 set firewall ipv4 name HOSTING-WIFI default-action 'reject'
