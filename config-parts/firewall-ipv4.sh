@@ -191,8 +191,13 @@ set firewall ipv4 name WAN-HOSTING default-action 'reject'
 set firewall ipv4 name WAN-HOSTING rule 100 action 'accept'
 set firewall ipv4 name WAN-HOSTING rule 100 state 'established'
 set firewall ipv4 name WAN-HOSTING rule 100 state 'related'
-set firewall ipv4 name WAN-HOSTING rule 110 action 'reject'
-set firewall ipv4 name WAN-HOSTING rule 110 state 'invalid'
+set firewall ipv4 name WAN-HOSTING rule 120 action 'accept'
+set firewall ipv4 name WAN-HOSTING rule 120 description 'NAT: OpenShift Ingress Controller'
+set firewall ipv4 name WAN-HOSTING rule 120 destination port port-group OCP_PORTS
+set firewall ipv4 name WAN-HOSTING rule 120 destination group address-group OCP_VIPS
+set firewall ipv4 name WAN-HOSTING rule 120 protocol 'tcp_udp'
+set firewall ipv4 name WAN-HOSTING rule 130 action 'reject'
+set firewall ipv4 name WAN-HOSTING rule 130 state 'invalid'
 
 ## -------------------------
 ## HOSTING -> LOCAL
@@ -246,8 +251,8 @@ set firewall ipv4 name WIFI-HOSTING rule 120 destination address "10.120.14.5"
 
 set firewall ipv4 name WIFI-HOSTING rule 130 action 'accept'
 set firewall ipv4 name WIFI-HOSTING rule 130 description 'Accept traffic to OpenShift services'
-set firewall ipv4 name WIFI-HOSTING rule 130 destination group port-group 'OCP_PORTS'
-set firewall ipv4 name WIFI-HOSTING rule 130 destination group address-group 'OCP_VIPS'
+set firewall ipv4 name WIFI-HOSTING rule 130 destination group port-group OCP_PORTS
+set firewall ipv4 name WIFI-HOSTING rule 130 destination group address-group OCP_VIPS
 set firewall ipv4 name WIFI-HOSTING rule 130 protocol 'tcp_udp'
 
 set firewall ipv4 name WIFI-HOSTING rule 140 action 'accept'

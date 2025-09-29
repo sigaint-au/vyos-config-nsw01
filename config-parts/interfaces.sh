@@ -85,8 +85,6 @@ set interfaces bridge br0 vif 21 address '10.120.21.1/24'
 set interfaces bridge br0 vif 21 description 'NET_NSW01_VMNET'
 
 # VPN for Newcastle
-# TODO(mhahl)
-# Fix routing on nsw02 end.
 set interfaces wireguard wg600 address '172.16.8.1/31'
 set interfaces wireguard wg600 description 'Newcastle VPN Tunnel'
 set interfaces wireguard wg600 port 51820

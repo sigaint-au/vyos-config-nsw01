@@ -1,7 +1,6 @@
 #!/bin/vbash
 
 set firewall zone ADMIN default-action 'reject'
-set firewall zone ADMIN default-log
 set firewall zone ADMIN description 'Device administration network'
 set firewall zone ADMIN from PROTECTED firewall name 'PROTECTED-ADMIN'
 set firewall zone ADMIN from LOCAL firewall name 'LOCAL-ADMIN'
@@ -10,7 +9,6 @@ set firewall zone ADMIN from WAN firewall name 'WAN-ADMIN'
 set firewall zone ADMIN member interface 'br0.10'
 
 set firewall zone DMZ default-action 'reject'
-set firewall zone DMZ default-log
 set firewall zone DMZ description 'Internet connected'
 set firewall zone DMZ from WAN firewall name 'WAN-DMZ'
 set firewall zone DMZ from WAN firewall ipv6-name 'WAN-DMZ-6'
