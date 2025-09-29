@@ -219,6 +219,7 @@ set firewall ipv4 name HOSTING-LOCAL rule 120 destination group port-group 'LOCA
 set firewall ipv4 name HOSTING-LOCAL rule 120 protocol 'tcp_udp'
 set firewall ipv4 name HOSTING-LOCAL rule 130 description 'Accept MetalLB BGP traffic'
 set firewall ipv4 name HOSTING-LOCAL rule 130 destination group address-group METALLB_VIPS
+set firewall ipv4 name HOSTING-LOCAL rule 130 action 'accept'
 set firewall ipv4 name HOSTING-LOCAL rule 140 action 'reject'
 set firewall ipv4 name HOSTING-LOCAL rule 140 state 'invalid'
 
