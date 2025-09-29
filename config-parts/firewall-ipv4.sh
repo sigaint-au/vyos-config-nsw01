@@ -193,7 +193,7 @@ set firewall ipv4 name WAN-HOSTING rule 100 state 'established'
 set firewall ipv4 name WAN-HOSTING rule 100 state 'related'
 set firewall ipv4 name WAN-HOSTING rule 120 action 'accept'
 set firewall ipv4 name WAN-HOSTING rule 120 description 'NAT: OpenShift Ingress Controller'
-set firewall ipv4 name WAN-HOSTING rule 120 destination port port-group OCP_PORTS
+set firewall ipv4 name WAN-HOSTING rule 120 destination group port-group OCP_PORTS
 set firewall ipv4 name WAN-HOSTING rule 120 destination group address-group OCP_VIPS
 set firewall ipv4 name WAN-HOSTING rule 120 protocol 'tcp_udp'
 set firewall ipv4 name WAN-HOSTING rule 130 action 'reject'
