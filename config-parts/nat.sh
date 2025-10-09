@@ -4,7 +4,7 @@
 set nat source rule 50 outbound-interface name 'eth0'
 set nat source rule 50 source address '10.120.0.0/16'
 set nat source rule 50 translation address 'masquerade'
-r
+
 ####
 ## WAN eth0 (443,80) -> OpenShift Ingress
 ##
