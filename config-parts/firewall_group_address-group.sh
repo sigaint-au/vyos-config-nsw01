@@ -22,6 +22,9 @@ set firewall group address-group METALLB_VIPS address 10.120.13.200-10.120.13.25
 set firewall group address-group WG_PEERS address '58.178.25.160' # nsw02
 set firewall group address-group WG_PEERS address '103.214.222.109' # nsw01
 
+##
+## OpenShift floating IPs
+##
 set firewall group address-group OCP_VIPS address '10.120.14.5'
 set firewall group address-group OCP_VIPS address '10.120.14.6'
 
