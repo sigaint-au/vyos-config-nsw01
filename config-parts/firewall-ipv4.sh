@@ -214,8 +214,12 @@ set firewall ipv4 name HOSTING-LOCAL rule 120 protocol 'tcp_udp'
 set firewall ipv4 name HOSTING-LOCAL rule 130 description 'Accept MetalLB BGP traffic'
 set firewall ipv4 name HOSTING-LOCAL rule 130 destination group address-group METALLB_VIPS
 set firewall ipv4 name HOSTING-LOCAL rule 130 action 'accept'
-set firewall ipv4 name HOSTING-LOCAL rule 140 action 'reject'
-set firewall ipv4 name HOSTING-LOCAL rule 140 state 'invalid'
+set firewall ipv4 name HOSTING-LOCAL rule 140 description 'NAT: OpenShift Ingress Controller'
+set firewall ipv4 name HOSTING-LOCAL rule 140 destination group port-group OCP_PORTS
+set firewall ipv4 name HOSTING-LOCAL rule 140 destination group address-group OCP_VIPS
+set firewall ipv4 name HOSTING-LOCAL rule 140 action 'accept'
+set firewall ipv4 name HOSTING-LOCAL rule 150 action 'reject'
+set firewall ipv4 name HOSTING-LOCAL rule 150 state 'invalid'
 
 ## -------------------------
 ## LOCAL -> HOSTING
@@ -232,8 +236,12 @@ set firewall ipv4 name LOCAL-HOSTING rule 110 action 'accept'
 set firewall ipv4 name LOCAL-HOSTING rule 120 description 'Accept MetalLB BGP traffic'
 set firewall ipv4 name LOCAL-HOSTING rule 120 destination group address-group METALLB_VIPS
 set firewall ipv4 name LOCAL-HOSTING rule 120 action 'accept'
-set firewall ipv4 name LOCAL-HOSTING rule 130 action 'reject'
-set firewall ipv4 name LOCAL-HOSTING rule 130 state 'invalid'
+set firewall ipv4 name LOCAL-HOSTING rule 130 description 'NAT: OpenShift Ingress Controller'
+set firewall ipv4 name LOCAL-HOSTING rule 130 destination group port-group OCP_PORTS
+set firewall ipv4 name LOCAL-HOSTING rule 130 destination group address-group OCP_VIPS
+set firewall ipv4 name LOCAL-HOSTING rule 130 action 'accept'
+set firewall ipv4 name LOCAL-HOSTING rule 140 action 'reject'
+set firewall ipv4 name LOCAL-HOSTING rule 140 state 'invalid'
 
 ## -------------------------
 ## WIFI -> HOSTING
