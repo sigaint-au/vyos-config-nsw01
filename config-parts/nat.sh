@@ -6,6 +6,22 @@ set nat source rule 50 source address '10.120.0.0/16'
 set nat source rule 50 translation address 'masquerade'
 
 ####
+## Hosting -> Hosting Reflection
+##
+## This is required because the destination is in the same subnet as the
+## out going traffic.
+##
+## Read more here:
+## https://docs.vyos.io/en/latest/configuration/nat/nat44.html#hairpin-nat-nat-reflection
+##
+set nat source rule 110 description 'Reflection: OpenShift Ingress Controller '
+set nat source rule 110 destination address '10.120.14.0/24'
+set nat source rule 110 outbound-interface name 'br0.14'
+set nat source rule 110 protocol 'tcp_udp'
+set nat source rule 110 source address '10.120.14.0/24'
+set nat source rule 110 translation address 'masquerade'
+
+####
 ## WAN eth0 (443,80) -> OpenShift Ingress
 ##
 set nat destination rule 10 description "WAN: OpenShift Ingress Controller (80)"
@@ -43,6 +59,7 @@ set nat destination rule 25 inbound-interface name "br0.13"
 set nat destination rule 25 protocol "tcp_udp"
 set nat destination rule 25 translation address "10.120.14.6"
 set nat destination rule 25 translation port "443"
+
 
 ####
 ## HOSTING br0.14 (443,80) -> OpenShift Ingress
