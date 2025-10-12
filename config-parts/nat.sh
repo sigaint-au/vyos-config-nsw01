@@ -80,6 +80,18 @@ set nat destination rule 35 protocol "tcp_udp"
 set nat destination rule 35 translation address "10.120.14.6"
 set nat destination rule 35 translation port "443"
 
+
+####
+## WAN eth0(32400) -> Plex
+##
+set nat destination rule 40 description "Plex - 32400"
+set nat destination rule 40 destination port "32400"
+set nat destination rule 40 inbound-interface name "eth0"
+set nat destination rule 40 protocol "tcp"
+set nat destination rule 40 translation address "10.120.13.10"
+set nat destination rule 40 translation port "32400"
+
+
 #set nat source rule 100 outbound-interface name 'wg600'
 #set nat source rule 100 translation address 'masquerade'
 
