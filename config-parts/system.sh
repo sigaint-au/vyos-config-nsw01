@@ -6,13 +6,13 @@ set system host-name '$host_system_host_name'
 set system time-zone 'Australia/Sydney'
 
 # Syslog
-set system syslog remote syslog.v4.dmz.sigaint.au protocol tcp
+# set system syslog remote syslog.v4.dmz.sigaint.au protocol tcp
 
 # System DNS set to NextDNS
-set system name-server '45.90.28.189'
-set system name-server '45.90.30.189'
-set system name-server '2a07:a8c0::2a:b561'
-set system name-server '2a07:a8c1::2a:b561'
+set system name-server '76.76.2.136'
+set system name-server '76.76.10.136'
+set system name-server '2606:1a40:0:15:39f3:cf9:3677:0'
+set system name-server '2606:1a40:1:15:39f3:cf9:3677:0'
 
 # Device requires this baud rate
 # Set in bootloader
