@@ -1,8 +1,8 @@
 #!/bin/vbash
 
 # Next DNS Servers
-set service dhcpv6-server global-parameters name-server '2a07:a8c0::2a:b561'
-set service dhcpv6-server global-parameters name-server '2a07:a8c1::2a:b561'
+set service dhcpv6-server global-parameters name-server '2606:1a40:0:15:39f3:cf9:3677:0'
+set service dhcpv6-server global-parameters name-server '2606:1a40:1:15:39f3:cf9:3677:0'
 
 # DMZ
 set service dhcpv6-server shared-network-name NET_NSW01_DMZ_6 subnet 2404:e80:4b6f:1::/64 subnet-id '20'

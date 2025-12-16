@@ -3,10 +3,10 @@
 ####
 ## DNS Servers
 ##
-set firewall group address-group DNS_SERVERS address '45.90.28.189'
-set firewall group address-group DNS_SERVERS address '45.90.30.189'
-set firewall group ipv6-address-group DNS_SERVERS_6 address '2a07:a8c0::2a:b561'
-set firewall group ipv6-address-group DNS_SERVERS_6 address '2a07:a8c1::2a:b561'
+set firewall group address-group DNS_SERVERS address '76.76.2.136'
+set firewall group address-group DNS_SERVERS address '76.76.10.136'
+set firewall group ipv6-address-group DNS_SERVERS_6 address '2606:1a40:0:15:39f3:cf9:3677:0'
+set firewall group ipv6-address-group DNS_SERVERS_6 address '2606:1a40:1:15:39f3:cf9:3677:0'
 
 ###
 ## Metal LB Address Ranges from each network
