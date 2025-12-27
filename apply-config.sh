@@ -3,10 +3,7 @@
 # shellcheck source=/dev/null
 
 dry_run=true
-PASSWORD_FILE="/tmp/vyos-secrets-password.$$"  # Unique per script invocation/run
-
-# Clean up password file on exit
-trap 'rm -f "$PASSWORD_FILE" 2>/dev/null' EXIT INT TERM
+PASSWORD_FILE="/config/.vyos-secrets-password"
 
 if [[ "$(id -g -n)" != 'vyattacfg' ]] ; then
     exec sg vyattacfg -c "/bin/vbash $(readlink -f "$0") $*"
@@ -23,8 +20,7 @@ while getopts "cde" options; do
 
     # Check if we have a remembered password
     if [[ ! -f "$PASSWORD_FILE" ]]; then
-      echo "Error: No remembered password found." >&2
-      echo "Run with -e first to set the encryption password." >&2
+      echo "Error: $PASSWORD_FILE not found" >&2
       exit 1
     fi
 
@@ -46,25 +42,10 @@ while getopts "cde" options; do
   e)
     echo 'Encrypting all plaintext files to *.gpg'
 
-    # Prompt for password (only once), store it securely
-    read -s -p "Enter encryption password: " passphrase
-    echo
-    read -s -p "Confirm password: " passphrase2
-    echo
-
-    if [[ "$passphrase" != "$passphrase2" ]]; then
-      echo "Passwords do not match." >&2
+    if [[ ! -f "$PASSWORD_FILE" ]]; then
+      echo "Error: $PASSWORD_FILE not found" >&2
       exit 1
     fi
-
-    if [[ -z "$passphrase" ]]; then
-      echo "Password cannot be empty." >&2
-      exit 1
-    fi
-
-    # Save password to temporary file with strict permissions
-    echo "$passphrase" > "$PASSWORD_FILE"
-    chmod 600 "$PASSWORD_FILE"
 
     # Encrypt all non-.gpg files using the same password
     find secrets/ certificates/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
