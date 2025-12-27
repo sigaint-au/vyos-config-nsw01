@@ -14,4 +14,7 @@
 !secrets/
 !hosts/
 
-secrets/*.env
+*.env
+*.key
+*.crt
+*.pem

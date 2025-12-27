@@ -5,6 +5,8 @@
 dry_run=true
 PASSWORD_FILE="/config/.vyos-secrets-password"
 
+source scripts/helpers.script
+
 if [[ "$(id -g -n)" != 'vyattacfg' ]] ; then
     exec sg vyattacfg -c "/bin/vbash $(readlink -f "$0") $*"
 fi
