@@ -1,7 +1,12 @@
 #!/bin/vbash
 # shellcheck shell=bash
 # shellcheck source=/dev/null
+
 dry_run=true
+PASSWORD_FILE="/tmp/vyos-secrets-password.$$"  # Unique per script invocation/run
+
+# Clean up password file on exit
+trap 'rm -f "$PASSWORD_FILE" 2>/dev/null' EXIT INT TERM
 
 if [[ "$(id -g -n)" != 'vyattacfg' ]] ; then
     exec sg vyattacfg -c "/bin/vbash $(readlink -f "$0") $*"
@@ -9,22 +14,31 @@ fi
 
 while getopts "cde" options; do
   case "${options}" in
-  # -c Commit changes - default is dry-run
   c)
     echo 'Will commit changes'
     dry_run=false
     ;;
   d)
     echo 'Decrypting all *.gpg files'
-    # Decrypt everything under secrets/
-    find secrets/ -type f -name "*.gpg" -exec gpg --decrypt-files {} +
-    # Decrypt everything under certificates/
-    find certificates/ -type f -name "*.gpg" -exec gpg --decrypt-files {} +
 
-    # Remove the now-decrypted .gpg files
+    # Check if we have a remembered password
+    if [[ ! -f "$PASSWORD_FILE" ]]; then
+      echo "Error: No remembered password found." >&2
+      echo "Run with -e first to set the encryption password." >&2
+      exit 1
+    fi
+
+    # Use the remembered password for batch decryption
+    find secrets/ certificates/ -type f -name "*.gpg" -print0 | \
+      xargs -0 -n1 gpg --batch --yes --passphrase-file "$PASSWORD_FILE" --decrypt-files
+
+    if [[ $? -ne 0 ]]; then
+      echo "Decryption failed — wrong password or corrupted files?" >&2
+      exit 1
+    fi
+
     echo 'Removing decrypted .gpg files'
-    find secrets/ -name "*.gpg" -type f -delete
-    find certificates/ -name "*.gpg" -type f -delete
+    find secrets/ certificates/ -name "*.gpg" -type f -delete
 
     echo 'Decryption complete'
     exit 0
@@ -32,30 +46,47 @@ while getopts "cde" options; do
   e)
     echo 'Encrypting all plaintext files to *.gpg'
 
-    # Process secrets/
-    find secrets/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
-      echo "Encrypting $file"
-      gpg -c --batch --yes --output "${file}.gpg" "$file"
-      # Remove plaintext only if encryption succeeded
-      if [[ $? -eq 0 ]]; then
-        rm -f "$file"
-      fi
-    done
+    # Prompt for password (only once), store it securely
+    read -s -p "Enter encryption password: " passphrase
+    echo
+    read -s -p "Confirm password: " passphrase2
+    echo
 
-    # Process certificates/
-    find certificates/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
+    if [[ "$passphrase" != "$passphrase2" ]]; then
+      echo "Passwords do not match." >&2
+      exit 1
+    fi
+
+    if [[ -z "$passphrase" ]]; then
+      echo "Password cannot be empty." >&2
+      exit 1
+    fi
+
+    # Save password to temporary file with strict permissions
+    echo "$passphrase" > "$PASSWORD_FILE"
+    chmod 600 "$PASSWORD_FILE"
+
+    # Encrypt all non-.gpg files using the same password
+    find secrets/ certificates/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
       echo "Encrypting $file"
-      gpg -c --batch --yes --output "${file}.gpg" "$file"
+      gpg --batch --yes --symmetric --passphrase-file "$PASSWORD_FILE" \
+          --output "${file}.gpg" "$file"
+
       if [[ $? -eq 0 ]]; then
         rm -f "$file"
+        echo "  → ${file}.gpg created, plaintext removed"
+      else
+        echo "  → Failed to encrypt $file" >&2
       fi
     done
 
     echo 'Encryption complete'
+    echo "Password saved temporarily for future decryption (until reboot or manual cleanup)"
     exit 0
     ;;
   *)
     echo 'error in command line parsing' >&2
+    echo "Usage: $0 [-c] [-d | -e]" >&2
     exit 1
     ;;
   esac
@@ -67,7 +98,7 @@ source /opt/vyatta/etc/functions/script-template
 # Reset the configuration
 load /opt/vyatta/etc/config.boot.default
 
-# Load secrets
+# Load secrets (now from decrypted files in /config/secrets/)
 for f in /config/secrets/*.env; do
   if [[ -f "${f}" ]]; then
     echo "Loading secrets ${f}"
@@ -93,7 +124,6 @@ fi
 echo ""
 echo "Processing config-parts"
 echo "--------------------------"
-# Load all config files
 for f in /config/config-parts/*.sh; do
   if [[ -f "${f}" ]]; then
     echo "Processing ${f}"
@@ -108,7 +138,6 @@ compare
 if "${dry_run}"; then
   echo "Not saving changes, use -c to commit"
 else
-  # Commit and save
   echo "Committing and saving config"
   commit
   save
