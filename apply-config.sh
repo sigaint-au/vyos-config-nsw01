@@ -15,15 +15,43 @@ while getopts "cde" options; do
     dry_run=false
     ;;
   d)
-    echo 'Decrypting secrets'
-    gpg --decrypt-files secrets/*.gpg
-    find secrets/ -name "*.gpg" -type f -print | xargs rm
+    echo 'Decrypting all *.gpg files'
+    # Decrypt everything under secrets/
+    find secrets/ -type f -name "*.gpg" -exec gpg --decrypt-files {} +
+    # Decrypt everything under certificates/
+    find certificates/ -type f -name "*.gpg" -exec gpg --decrypt-files {} +
+
+    # Remove the now-decrypted .gpg files
+    echo 'Removing decrypted .gpg files'
+    find secrets/ -name "*.gpg" -type f -delete
+    find certificates/ -name "*.gpg" -type f -delete
+
+    echo 'Decryption complete'
     exit 0
     ;;
   e)
-    echo 'Encrypting secrets'
-    gpg -c secrets/credentials.env
-    find secrets/ ! -name "*.gpg" -type f -print | xargs rm
+    echo 'Encrypting all plaintext files to *.gpg'
+
+    # Process secrets/
+    find secrets/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
+      echo "Encrypting $file"
+      gpg -c --batch --yes --output "${file}.gpg" "$file"
+      # Remove plaintext only if encryption succeeded
+      if [[ $? -eq 0 ]]; then
+        rm -f "$file"
+      fi
+    done
+
+    # Process certificates/
+    find certificates/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
+      echo "Encrypting $file"
+      gpg -c --batch --yes --output "${file}.gpg" "$file"
+      if [[ $? -eq 0 ]]; then
+        rm -f "$file"
+      fi
+    done
+
+    echo 'Encryption complete'
     exit 0
     ;;
   *)
@@ -50,14 +78,14 @@ done
 echo ""
 echo "Loaded secrets:"
 echo "--------------------------"
-env |  grep -E '^(secret_)'
+env | grep -E '^(secret_)'
 
 echo ""
 echo "Loaded host specific env:"
 echo "--------------------------"
-if [ "-f /config/hosts/$(hostname -s).env" ]; then
+if [[ -f "/config/hosts/$(hostname -s).env" ]]; then
   source "/config/hosts/$(hostname -s).env"
-  env |  grep -E '^(host_)'
+  env | grep -E '^(host_)'
 else
   echo "No host specific env file found"
 fi
@@ -85,5 +113,3 @@ else
   commit
   save
 fi
-
-
