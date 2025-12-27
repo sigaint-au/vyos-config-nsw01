@@ -25,7 +25,7 @@ while getopts "cde" options; do
     fi
 
     # Use the remembered password for batch decryption
-    find secrets/ certificates/ -type f -name "*.gpg" -print0 | \
+    find secrets/ -type f -name "*.gpg" -print0 | \
       xargs -0 -n1 gpg --batch --yes --passphrase-file "$PASSWORD_FILE" --decrypt-files
 
     if [[ $? -ne 0 ]]; then
@@ -34,7 +34,7 @@ while getopts "cde" options; do
     fi
 
     echo 'Removing decrypted .gpg files'
-    find secrets/ certificates/ -name "*.gpg" -type f -delete
+    find secrets/ -name "*.gpg" -type f -delete
 
     echo 'Decryption complete'
     exit 0
@@ -48,7 +48,7 @@ while getopts "cde" options; do
     fi
 
     # Encrypt all non-.gpg files using the same password
-    find secrets/ certificates/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
+    find secrets/ -type f ! -name "*.gpg" -print0 | while IFS= read -r -d '' file; do
       echo "Encrypting $file"
       gpg --batch --yes --symmetric --passphrase-file "$PASSWORD_FILE" \
           --output "${file}.gpg" "$file"

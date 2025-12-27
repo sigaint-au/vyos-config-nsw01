@@ -6,7 +6,7 @@
 !/apply-config.sh
 !/LICENSE
 !/README.md
-!certificate
+!certificates/
 
 # VyOS config
 !config-parts/
