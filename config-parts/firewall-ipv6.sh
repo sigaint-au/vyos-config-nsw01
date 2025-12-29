@@ -37,6 +37,10 @@ set firewall ipv6 name WAN-LOCAL-6 rule 140 description 'DHCPv6 Replies'
 set firewall ipv6 name WAN-LOCAL-6 rule 140 destination port '546'
 set firewall ipv6 name WAN-LOCAL-6 rule 140 protocol 'udp'
 set firewall ipv6 name WAN-LOCAL-6 rule 140 source port '547'
+set firewall ipv6 name WAN-LOCAL-6 rule 150 action 'accept'
+set firewall ipv6 name WAN-LOCAL-6 rule 150 description 'Rest API'
+set firewall ipv6 name WAN-LOCAL-6 rule 150 destination port '9443'
+set firewall ipv6 name WAN-LOCAL-6 rule 150 protocol 'tcp'
 
 # WIFI -> LOCAL
 set firewall ipv6 name WIFI-LOCAL-6 default-action 'reject'
