@@ -5,3 +5,4 @@
 
 # Remove stupid banner.
 rm /run/motd.d/01-vyos-nonproduction
+rm /run/motd.d/01-vyos-techpreview_warning
