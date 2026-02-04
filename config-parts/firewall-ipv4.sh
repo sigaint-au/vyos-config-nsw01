@@ -223,8 +223,18 @@ set firewall ipv4 name HOSTING-LOCAL rule 140 destination group port-group OCP_P
 set firewall ipv4 name HOSTING-LOCAL rule 140 destination group address-group OCP_VIPS
 set firewall ipv4 name HOSTING-LOCAL rule 140 protocol 'tcp_udp'
 set firewall ipv4 name HOSTING-LOCAL rule 140 action 'accept'
-set firewall ipv4 name HOSTING-LOCAL rule 150 action 'reject'
-set firewall ipv4 name HOSTING-LOCAL rule 150 state 'invalid'
+
+set firewall ipv4 name HOSTING-LOCAL rule 150 action 'accept'
+set firewall ipv4 name HOSTING-LOCAL rule 150 description 'Squid proxy'
+set firewall ipv4 name HOSTING-LOCAL rule 150 destination port '3128'
+set firewall ipv4 name HOSTING-LOCAL rule 150 protocol 'tcp'
+set firewall ipv4 name HOSTING-LOCAL rule 160 action 'accept'
+set firewall ipv4 name HOSTING-LOCAL rule 160 description 'DNS Forwarder'
+set firewall ipv4 name HOSTING-LOCAL rule 160 destination port '53'
+set firewall ipv4 name HOSTING-LOCAL rule 160 protocol 'tcp_udp'
+set firewall ipv4 name HOSTING-LOCAL rule 999 action 'reject'
+set firewall ipv4 name HOSTING-LOCAL rule 999 state 'invalid'
+
 
 ## -------------------------
 ## LOCAL -> HOSTING

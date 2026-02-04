@@ -42,6 +42,7 @@ set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24
 # Nodes iDRAC and XClarity
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-fmm0wv2 ip-address '10.120.10.49'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-fmm0wv2 mac '6c:2b:59:86:e6:9b'
+
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-6BFVY42 ip-address '10.120.10.50'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-6BFVY42 mac '74:e6:e2:fa:70:06'
 set service dhcp-server shared-network-name NET_NSW01_MGMT subnet 10.120.10.0/24 static-mapping idrac-8505qm2 ip-address '10.120.10.51'
@@ -91,29 +92,35 @@ set service dhcp-server shared-network-name NET_NSW01_PROTECTED subnet 10.120.11
 #
 #----------------------------------------------------------
 set service dhcp-server shared-network-name NET_NSW01_HOSTING
-set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '76.76.2.136'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '76.76.10.136'
+#set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '76.76.2.136'
+#set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '76.76.10.136'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING option name-server '10.120.14.1'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 option default-router '10.120.14.1'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 range 0 start '10.120.14.100'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 range 0 stop '10.120.14.200'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 subnet-id '14'
 
 
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-01 ip-address '10.120.14.10'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-01 mac '6c:2b:59:86:e6:99'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-e9ad ip-address '10.120.14.10'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-e9ad mac '2c:ea:7f:40:4b:b9'
 
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-01 ip-address '10.120.14.11'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-01 mac '44:a8:42:0a:5e:e7'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-02 ip-address '10.120.14.12'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-02 mac '80:18:44:ec:23:e6'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-03 ip-address '10.120.14.13'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-03 mac '18:66:da:ef:6d:8a'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-04 ip-address '10.120.14.14'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-04 mac '18:66:da:ef:7d:aa'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-05 ip-address '10.120.14.15'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-05 mac '7c:d3:0a:59:3f:90'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-06 ip-address '10.120.14.16'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-node-06 mac '38:68:dd:05:7e:d8'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-ab56 ip-address '10.120.14.11'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-ab56 mac '44:a8:42:0a:5e:e7'
+
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-527f ip-address '10.120.14.12'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-527f mac '80:18:44:ec:23:e6'
+
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-49f4 ip-address '10.120.14.13'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-49f4 mac '18:66:da:ef:6d:8a'
+
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-8f1c ip-address '10.120.14.14'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-8f1c mac '18:66:da:ef:7d:aa'
+
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-55f9 ip-address '10.120.14.15'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-55f9 mac '7c:d3:0a:59:3f:90'
+
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-9e4a ip-address '10.120.14.16'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-934a mac '38:68:dd:05:7e:d8'
 
 #----------------------------------------------------------
 # Name:     NET_NSW01_SECURITY
