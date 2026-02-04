@@ -120,7 +120,7 @@ set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-55f9 mac '7c:d3:0a:59:3f:90'
 
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-9e4a ip-address '10.120.14.16'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-934a mac '38:68:dd:05:7e:d8'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping ocp-node-9e4a mac '38:68:dd:05:7e:d8'
 
 #----------------------------------------------------------
 # Name:     NET_NSW01_SECURITY
