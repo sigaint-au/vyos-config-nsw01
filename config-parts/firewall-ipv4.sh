@@ -143,6 +143,7 @@ set firewall ipv4 name HOSTING-WAN default-action 'reject'
 set firewall ipv4 name HOSTING-WAN rule 100 action 'accept'
 set firewall ipv4 name HOSTING-WAN rule 100 description 'Accept all traffic to WAN'
 
+
 ## -------------------------
 ## WIFI -> LOCAL
 ## -------------------------
@@ -173,20 +174,33 @@ set firewall ipv4 name LOCAL-WIFI rule 110 action 'reject'
 set firewall ipv4 name LOCAL-WIFI rule 110 state 'invalid'
 
 ## -------------------------
-## WIFI-ADMIN
-## TODO(mhahl): Remove this and move to Secure zone jumpbox.
+## WIFI -> ADMIN
 ## -------------------------
 set firewall ipv4 name WIFI-ADMIN default-action 'reject'
 set firewall ipv4 name WIFI-ADMIN rule 100 action 'accept'
 set firewall ipv4 name WIFI-ADMIN rule 100 description 'Accept All Traffic'
 
 ## -------------------------
-## ADMIN-WIFI (XXXX)
-## TODO(mhahl): Remove this and move to Secure zone jumpbox.
+## ADMIN -> WIFI
 ## -------------------------
 set firewall ipv4 name ADMIN-WIFI default-action 'reject'
 set firewall ipv4 name ADMIN-WIFI rule 100 action 'accept'
 set firewall ipv4 name ADMIN-WIFI rule 100 description 'Accept All Traffic'
+
+## -------------------------
+## HOSTING -> ADMIN
+## -------------------------
+set firewall ipv4 name HOSTING-ADMIN default-action 'reject'
+set firewall ipv4 name HOSTING-ADMIN rule 100 action 'accept'
+set firewall ipv4 name HOSTING-ADMIN rule 100 description 'Accept All Traffic'
+
+## -------------------------
+## ADMIN -> HOSTING
+## -------------------------
+set firewall ipv4 name ADMIN-HOSTING default-action 'reject'
+set firewall ipv4 name ADMIN-HOSTING rule 100 action 'accept'
+set firewall ipv4 name ADMIN-HOSTING rule 100 description 'Accept All Traffic'
+
 
 ## -------------------------
 ## WAN -> HOSTING

@@ -278,6 +278,14 @@ set firewall ipv6 name VPN-WIFI-6 rule 100 action 'accept'
 set firewall ipv6 name WIFI-VPN-6 default-action 'drop'
 set firewall ipv6 name WIFI-VPN-6 rule 100 action 'accept'
 
+# HOSTING -> ADMIN
+set firewall ipv6 name HOSTING-ADMIN-6 default-action 'drop'
+set firewall ipv6 name HOSTING-ADMIN-6 rule 100 action 'accept'
+
+# ADMIN -> HOSTING
+set firewall ipv6 name ADMIN-HOSTING-6 default-action 'drop'
+set firewall ipv6 name ADMIN-HOSTING-6 rule 100 action 'accept'
+
 # VPN -> LOCAL
 set firewall ipv6 name VPN-LOCAL-6 default-action 'drop'
 set firewall ipv6 name VPN-LOCAL-6 rule 100 action 'accept'
