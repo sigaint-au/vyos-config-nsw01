@@ -246,6 +246,12 @@ set firewall ipv4 name HOSTING-LOCAL rule 160 action 'accept'
 set firewall ipv4 name HOSTING-LOCAL rule 160 description 'DNS Forwarder'
 set firewall ipv4 name HOSTING-LOCAL rule 160 destination port '53'
 set firewall ipv4 name HOSTING-LOCAL rule 160 protocol 'tcp_udp'
+
+set firewall ipv4 name HOSTING-LOCAL rule 170 description 'TFTP server (PXE)'
+set firewall ipv4 name HOSTING-LOCAL rule 170 action 'accept'
+set firewall ipv4 name HOSTING-LOCAL rule 170 protocol 'udp'
+set firewall ipv4 name HOSTING-LOCAL rule 170 destination port '69'
+
 set firewall ipv4 name HOSTING-LOCAL rule 999 action 'reject'
 set firewall ipv4 name HOSTING-LOCAL rule 999 state 'invalid'
 
@@ -270,8 +276,14 @@ set firewall ipv4 name LOCAL-HOSTING rule 130 destination group port-group OCP_P
 set firewall ipv4 name LOCAL-HOSTING rule 130 destination group address-group OCP_VIPS
 set firewall ipv4 name LOCAL-HOSTING rule 130 protocol 'tcp_udp'
 set firewall ipv4 name LOCAL-HOSTING rule 130 action 'accept'
-set firewall ipv4 name LOCAL-HOSTING rule 140 action 'reject'
-set firewall ipv4 name LOCAL-HOSTING rule 140 state 'invalid'
+
+set firewall ipv4 name LOCAL-HOSTING rule 150 description 'TFTP server response (PXE)'
+set firewall ipv4 name LOCAL-HOSTING rule 150 action 'accept'
+set firewall ipv4 name LOCAL-HOSTING rule 150 protocol 'udp'
+set firewall ipv4 name LOCAL-HOSTING rule 150 source port '69'
+
+set firewall ipv4 name LOCAL-HOSTING rule 999 action 'reject'
+set firewall ipv4 name LOCAL-HOSTING rule 999 state 'invalid'
 
 ## -------------------------
 ## WIFI -> HOSTING

@@ -100,6 +100,9 @@ set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 range 0 stop '10.120.14.200'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 subnet-id '14'
 
+# === UEFI PXE chainload ===
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 option tftp-server-name 10.120.14.1
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 option bootfile-name ipxe.efi
 
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-e9ad ip-address '10.120.14.10'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping lan-sno-e9ad mac '2c:ea:7f:40:4b:b9'
