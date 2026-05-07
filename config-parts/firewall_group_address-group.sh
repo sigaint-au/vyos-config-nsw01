@@ -27,6 +27,9 @@ set firewall group address-group WG_PEERS address '103.214.222.109' # nsw01
 ##
 set firewall group address-group OCP_VIPS address '10.120.14.5'
 set firewall group address-group OCP_VIPS address '10.120.14.6'
+set firewall group address-group OCP_VIPS address '10.120.14.7'
+set firewall group address-group OCP_VIPS address '10.120.14.8'
+set firewall group address-group OCP_VIPS address '10.120.14.10'
 
 ####
 # Proton IPv6
@@ -53,10 +56,3 @@ set firewall group address-group NTP_SERVERS address '216.239.35.8'
 set firewall group ipv6-address-group NTP_SERVERS_6 address '2001:4860:4806::'
 set firewall group ipv6-address-group NTP_SERVERS_6 address '2001:4860:4806:4::'
 set firewall group ipv6-address-group NTP_SERVERS_6 address '2001:4860:4806:8::'
-
-# OOB Address for iDRAC and XClarity
-set firewall group address-group OUT_OF_BAND address '10.120.10.10'
-set firewall group address-group OUT_OF_BAND address '10.120.10.11'
-set firewall group address-group OUT_OF_BAND address '10.120.10.12'
-set firewall group address-group OUT_OF_BAND address '10.120.10.13'
-set firewall group address-group OUT_OF_BAND address '10.120.10.14'
