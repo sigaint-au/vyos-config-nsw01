@@ -138,14 +138,18 @@ set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-49f4 ip-address '10.120.14.13'
 set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-49f4 mac '18:66:da:ef:6d:8a'
 
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-8f1c ip-address '10.120.14.14'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-8f1c mac '18:66:da:ef:7d:aa'
+## Blade System
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-4ef0 ip-address '10.120.14.21'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-4ef0 mac '7c:d3:0a:d7:e0:08'
 
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-55f9 ip-address '10.120.14.15'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-55f9 mac '7c:d3:0a:59:3f:90'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-2b49 ip-address '10.120.14.22'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-2b49 mac '7c:d3:0a:d7:de:16'
 
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-9e4a ip-address '10.120.14.16'
-set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-9e4a mac '38:68:dd:05:7e:d8'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-a3c7 ip-address '10.120.14.23'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-a3c7  mac '7c:d3:0a:d7:e1:1c'
+
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-87f3 ip-address '10.120.14.24'
+set service dhcp-server shared-network-name NET_NSW01_HOSTING subnet 10.120.14.0/24 static-mapping harvester-node-87f3 mac '7c:d3:0a:d7:d9:96'
 
 #----------------------------------------------------------
 # Name:     NET_NSW01_SECURITY
