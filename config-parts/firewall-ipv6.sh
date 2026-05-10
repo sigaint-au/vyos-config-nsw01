@@ -234,6 +234,12 @@ set firewall ipv6 name VMNET-DMZ-6 default-log
 set firewall ipv6 name VMNET-DMZ-6 description 'VMNET to DMZ IPv6'
 set firewall ipv6 name VMNET-DMZ-6 rule 100 action 'accept'
 
+# VMNET -> WIFI
+set firewall ipv6 name VMNET-WIFI-6 default-action 'reject'
+set firewall ipv6 name VMNET-WIFI-6 default-log
+set firewall ipv6 name VMNET-WIFI-6 description 'VMNET to WiFI IPv6'
+set firewall ipv6 name VMNET-WIFI-6 rule 100 action 'accept'
+
 # DMZ -> HOSTING
 set firewall ipv6 name DMZ-HOSTING-6 default-action 'drop'
 set firewall ipv6 name DMZ-HOSTING-6 default-log
@@ -269,6 +275,12 @@ set firewall ipv6 name WIFI-DMZ-6 default-action 'reject'
 set firewall ipv6 name WIFI-DMZ-6 default-log
 set firewall ipv6 name WIFI-DMZ-6 description 'WIFI to DMZ IPv6'
 set firewall ipv6 name WIFI-DMZ-6 rule 100 action 'accept'
+
+# WIFI -> VMNET
+set firewall ipv6 name WIFI-VMNET-6 default-action 'reject'
+set firewall ipv6 name WIFI-VMNET-6 default-log
+set firewall ipv6 name WIFI-VMNET-6 description 'WIFI to VMNET IPv6'
+set firewall ipv6 name WIFI-VMNET-6 rule 100 action 'accept'
 
 # VPN -> WIFI
 set firewall ipv6 name VPN-WIFI-6 default-action 'drop'

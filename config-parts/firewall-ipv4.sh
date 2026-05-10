@@ -336,6 +336,13 @@ set firewall ipv4 name VMNET-WAN rule 100 action 'accept'
 set firewall ipv4 name VMNET-WAN rule 100 description 'Allow all traffic to WAN'
 
 ## -------------------------
+## VMNET -> WIFI
+## -------------------------
+set firewall ipv4 name VMNET-WIFI default-action 'reject'
+set firewall ipv4 name VMNET-WIFI rule 100 action 'accept'
+set firewall ipv4 name VMNET-WIFI rule 100 description 'Allow all traffic to WIFI'
+
+## -------------------------
 ## VMNET -> LOCAL
 ## -------------------------
 set firewall ipv4 name VMNET-LOCAL default-action 'reject'
@@ -448,6 +455,12 @@ set firewall ipv4 name DMZ-WIFI rule 110 state 'invalid'
 ## -------------------------
 set firewall ipv4 name WIFI-DMZ default-action 'reject'
 set firewall ipv4 name WIFI-DMZ rule 100 action 'accept'
+
+## -------------------------
+## WIFI -> VMNET
+## -------------------------
+set firewall ipv4 name WIFI-VMNET default-action 'reject'
+set firewall ipv4 name WIFI-VMNET rule 100 action 'accept'
 
 ## -------------------------
 ## VPN -> WIFI
