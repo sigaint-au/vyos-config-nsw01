@@ -140,7 +140,6 @@ set firewall ipv4 name HOSTING-WAN default-action 'reject'
 set firewall ipv4 name HOSTING-WAN rule 100 action 'accept'
 set firewall ipv4 name HOSTING-WAN rule 100 description 'Accept all traffic to WAN'
 
-
 ## -------------------------
 ## WIFI -> LOCAL
 ## -------------------------
@@ -198,7 +197,6 @@ set firewall ipv4 name ADMIN-HOSTING default-action 'reject'
 set firewall ipv4 name ADMIN-HOSTING rule 100 action 'accept'
 set firewall ipv4 name ADMIN-HOSTING rule 100 description 'Accept All Traffic'
 
-
 ## -------------------------
 ## WAN -> HOSTING
 ## -------------------------
@@ -207,12 +205,17 @@ set firewall ipv4 name WAN-HOSTING rule 100 action 'accept'
 set firewall ipv4 name WAN-HOSTING rule 100 state 'established'
 set firewall ipv4 name WAN-HOSTING rule 100 state 'related'
 set firewall ipv4 name WAN-HOSTING rule 120 action 'accept'
-set firewall ipv4 name WAN-HOSTING rule 120 description 'NAT: OpenShift Ingress Controller'
+set firewall ipv4 name WAN-HOSTING rule 120 description 'NAT: Ingress Controller'
 set firewall ipv4 name WAN-HOSTING rule 120 destination group port-group OCP_PORTS
 set firewall ipv4 name WAN-HOSTING rule 120 destination group address-group OCP_VIPS
 set firewall ipv4 name WAN-HOSTING rule 120 protocol 'tcp_udp'
-set firewall ipv4 name WAN-HOSTING rule 130 action 'reject'
-set firewall ipv4 name WAN-HOSTING rule 130 state 'invalid'
+set firewall ipv4 name WAN-HOSTING rule 130 action 'accept'
+set firewall ipv4 name WAN-HOSTING rule 130 description 'NAT: MetalLB Addresses'
+set firewall ipv4 name WAN-HOSTING rule 130 destination group port-group METALLB_VIPS
+set firewall ipv4 name WAN-HOSTING rule 130 destination group address-group METALLB_VIPS
+set firewall ipv4 name WAN-HOSTING rule 130 protocol 'tcp_udp'
+set firewall ipv4 name WAN-HOSTING rule 140 action 'reject'
+set firewall ipv4 name WAN-HOSTING rule 140 state 'invalid'
 
 ## -------------------------
 ## HOSTING -> LOCAL
