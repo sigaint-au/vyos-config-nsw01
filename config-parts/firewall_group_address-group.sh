@@ -12,9 +12,9 @@ set firewall group ipv6-address-group DNS_SERVERS_6 address '2606:1a40:1:15:39f3
 ## Metal LB Address Ranges from each network
 ## by default .200-250 are reserved for MetalLB
 ##
-set firewall group address-group METALLB_VIPS address 10.120.21.200-10.120.21.250
-set firewall group address-group METALLB_VIPS address 10.120.20.200-10.120.20.250
-set firewall group address-group METALLB_VIPS address 10.120.13.200-10.120.13.250
+set firewall group address-group METALLB_VIPS address 10.120.21.200-10.120.21.255
+set firewall group address-group METALLB_VIPS address 10.120.20.200-10.120.20.255
+set firewall group address-group METALLB_VIPS address 10.120.13.200-10.120.13.255
 
 ####
 ## WireGuard Peers

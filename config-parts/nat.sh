@@ -40,7 +40,6 @@ set nat destination rule 15 protocol "tcp_udp"
 set nat destination rule 15 translation address "10.120.20.200"
 set nat destination rule 15 translation port "443"
 
-
 ####
 ## CORP br0.13 (443,80) -> OpenShift Ingress
 ##
@@ -59,7 +58,6 @@ set nat destination rule 25 inbound-interface name "br0.13"
 set nat destination rule 25 protocol "tcp_udp"
 set nat destination rule 25 translation address "10.120.20.200"
 set nat destination rule 25 translation port "443"
-
 
 ####
 ## HOSTING br0.14 (443,80) -> OpenShift Ingress
