@@ -211,7 +211,6 @@ set firewall ipv4 name WAN-HOSTING rule 120 destination group address-group OCP_
 set firewall ipv4 name WAN-HOSTING rule 120 protocol 'tcp_udp'
 set firewall ipv4 name WAN-HOSTING rule 130 action 'accept'
 set firewall ipv4 name WAN-HOSTING rule 130 description 'NAT: MetalLB Addresses'
-set firewall ipv4 name WAN-HOSTING rule 130 destination group port-group METALLB_VIPS
 set firewall ipv4 name WAN-HOSTING rule 130 destination group address-group METALLB_VIPS
 set firewall ipv4 name WAN-HOSTING rule 130 protocol 'tcp_udp'
 set firewall ipv4 name WAN-HOSTING rule 140 action 'reject'
