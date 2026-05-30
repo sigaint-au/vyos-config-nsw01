@@ -14,12 +14,19 @@ set nat source rule 50 translation address 'masquerade'
 ## Read more here:
 ## https://docs.vyos.io/en/latest/configuration/nat/nat44.html#hairpin-nat-nat-reflection
 ##
-set nat source rule 110 description 'Reflection: OpenShift Ingress Controller '
+set nat source rule 110 description 'Reflection: OpenShift Ingress Controller VMNET'
 set nat source rule 110 destination address '10.120.20.0/24'
 set nat source rule 110 outbound-interface name 'br0.20'
 set nat source rule 110 protocol 'tcp_udp'
 set nat source rule 110 source address '10.120.20.0/24'
 set nat source rule 110 translation address 'masquerade'
+
+set nat source rule 120 description 'Reflection: OpenShift Ingress Controller Hosting'
+set nat source rule 120 destination address '10.120.20.0/24'
+set nat source rule 120 outbound-interface name 'br0.14'
+set nat source rule 120 protocol 'tcp_udp'
+set nat source rule 120 source address '10.120.14.0/24'
+set nat source rule 120 translation address 'masquerade'
 
 ####
 ## WAN eth0 (443,80) -> OpenShift Ingress
